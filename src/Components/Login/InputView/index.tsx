@@ -1,25 +1,32 @@
 import { Input } from "antd";
 import React, { useState } from "react";
+import "./index.css";
 
 const Index: React.FC = () => {
   const [visibility, setVisibility] = useState<boolean>(false);
-//   setVisibility(!visibility);
+  //   setVisibility(!visibility);
 
-const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  console.log(e.target.value);
-  alert(e.target.value);
-  setVisibility(true);
-};
-
+  const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    alert(e.target.value);
+    setVisibility(true);
+  };
 
   return (
     <>
-      <div className="flex flex-col flex-wrap justify-around w-full mt-10 h-28 bg-pink">
+      <div className="flex flex-col flex-wrap justify-around w-5/6 mt-10 h-28 bg-pink">
         <div className="w-full h-8">
-          <Input allowClear placeholder="请输入手机号" onChange={inputChange}/>
+          <Input
+            className="rounded-full"
+            allowClear
+            placeholder="请输入手机号"
+            onChange={inputChange}
+          />
         </div>
         <div className="w-full h-8">
           <Input.Password
+            className="rounded-full"
+            
             visibilityToggle={visibility}
             allowClear
             placeholder="去输入密码"
@@ -30,7 +37,5 @@ const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     </>
   );
 };
-
-
 
 export default Index;

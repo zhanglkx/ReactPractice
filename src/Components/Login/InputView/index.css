@@ -1,0 +1,31 @@
+.ant-input:focus {
+  border: none;
+
+  box-shadow: none;
+
+  border: 1px solid #d2d5e1;
+}
+
+.ant-input-outlined:hover {
+  border: none;
+
+  box-shadow: none;
+
+  border: 1px solid #d2d5e1;
+}
+
+.ant-input-outlined {
+    border: none;
+  
+    box-shadow: none;
+  
+    border: 1px solid #d2d5e1;
+  }
+
+  :where(.css-dev-only-do-not-override-1qhpsh8).ant-input-outlined:hover {
+    border: none;
+  
+    box-shadow: none;
+  
+    border: 1px solid #d2d5e1;
+  }
