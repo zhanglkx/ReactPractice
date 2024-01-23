@@ -1,8 +1,12 @@
+import NavBar from "@/Components/Login/NavBar";
+import IconView from "@/Components/Login/IconView";
+
 function Login() {
   return (
     <>
-      <div className="bg-custom w-72 h-4/5">
-        代理
+      <div className="bg-theme text-slate-950">
+        <NavBar />
+        <IconView/>
       </div>
     </>
   );

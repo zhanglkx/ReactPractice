@@ -4,11 +4,10 @@ import { Button } from 'antd'
 import '../403/index.less'
 
 import Error404 from '/@/assets/svg/404.svg'
-import { MenuEnum } from '/@/enum/menu'
 export default function Index() {
     const navigate = useNavigate()
     const goHome = () => {
-        navigate(MenuEnum.BASE_HOME)
+        navigate('./')
     }
     return (
         <div className="error-card">
