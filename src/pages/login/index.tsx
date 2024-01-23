@@ -1,12 +1,14 @@
 import NavBar from "@/Components/Login/NavBar";
 import IconView from "@/Components/Login/IconView";
+import InputView from "@/Components/Login/InputView";
 
 function Login() {
   return (
     <>
-      <div className="bg-theme text-slate-950">
+      <div className="flex flex-wrap items-center justify-center bg-theme">
         <NavBar />
-        <IconView/>
+        <IconView />
+        <InputView />
       </div>
     </>
   );

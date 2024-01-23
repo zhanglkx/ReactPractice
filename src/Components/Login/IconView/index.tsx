@@ -3,8 +3,15 @@ import Icon from "@/Components/Icon";
 const index: React.FC = () => {
   return (
     <>
-      <div>
-        <Icon type="icon-dixiaofei" />
+      <div className="flex flex-wrap justify-center w-full h-20 pt-36">
+        <div className="items-center justify-center h-16 aliw-full">
+          <Icon className="w-16 h-16 " type="icon-dixiaofei" />
+        </div>
+
+        <div className="flex items-center justify-center w-full h-8 ">
+          ReactJs
+        </div>
+        
       </div>
     </>
   );
