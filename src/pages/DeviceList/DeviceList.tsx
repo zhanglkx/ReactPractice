@@ -2,7 +2,7 @@ function DeviceList() {
 
     return (
         <>
-        <div>设备列表Ï{1}</div>
+        <div className="bg-pink w-4 h-6">设备列表Ï{1}</div>
         </>
     )
 }

@@ -1,7 +1,9 @@
 function Login() {
   return (
     <>
-      <div>登录</div>
+      <div className="bg-custom w-72 h-4/5">
+        代理
+      </div>
     </>
   );
 }
