@@ -1,22 +1,28 @@
+// /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input } from "antd";
 import React, { useState } from "react";
 import "./index.css";
 import { InputType } from "@/Components/Login/Interface/interface";
-
 const { Search } = Input;
+
+type PasswordViewProps = {
+  visibility: boolean;
+  inputChange: (e:any)=>void;
+};
 
 const Index: React.FC = () => {
   const [visibility, setVisibility] = useState<boolean>(false);
-  const [inputType, setInputType] = useState<InputType>(InputType.Password);
+  const [inputType, setInputType] = useState<InputType>(InputType.Verification);
 
-  const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const inputChange = (e: any) => {
     console.log(e.target.value);
     alert(e.target.value);
     setVisibility(true);
+    setInputType(InputType.Password);
   };
   let Verify;
   if (inputType === InputType.Password) {
-    Verify = <PasswordView visibility={visibility} inputChange={inputChange} />;
+    Verify = <PasswordView visibility={visibility} inputChange={inputChange}/>;
   } else {
     Verify = <VerificationView />;
   }
@@ -38,7 +44,7 @@ const Index: React.FC = () => {
   );
 };
 
-const PasswordView: React.FC = (visibility, inputChange) => {
+const PasswordView = ({visibility,inputChange}: PasswordViewProps) => {
   return (
     <>
       <div>
@@ -48,7 +54,9 @@ const PasswordView: React.FC = (visibility, inputChange) => {
             visibilityToggle={visibility}
             allowClear
             placeholder="去输入密码"
-            onChange={inputChange}
+            onChange={() => {
+              inputChange;
+            }}
           />
         </div>
       </div>
