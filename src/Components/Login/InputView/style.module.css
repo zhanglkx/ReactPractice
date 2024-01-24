@@ -1,0 +1,28 @@
+.ant-input:focus {
+  border: none;
+
+  box-shadow: none;
+
+  border: 1px solid #d2d5e1;
+}
+
+.ant-input-outlined:hover {
+  border: none;
+
+  box-shadow: none;
+
+  border: 1px solid #d2d5e1;
+}
+
+.ant-input-outlined {
+  border: none;
+
+  box-shadow: none;
+
+  border: 1px solid #d2d5e1;
+}
+
+.ant-input {
+  border-radius: 25px;
+  background-color: aqua;
+}
