@@ -1,5 +1,5 @@
 // /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Input } from "antd";
+import { Button, Input } from "antd";
 import React, { useState } from "react";
 import "./style.module.css";
 import { InputType } from "@/Components/Login/Interface/interface";
@@ -29,7 +29,7 @@ const Index: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col flex-wrap justify-around w-5/6 h-28 mt-14">
+      <div className="flex flex-col flex-wrap justify-around w-5/6 h-30 marker:mt-14">
         <div className="w-full h-7">
           <Input
             className="h-10 rounded-full"
@@ -68,6 +68,8 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
     </>
   );
 };
+
+
 /**
  * 验证码界面
  * @returns 验证码界面
@@ -75,17 +77,30 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 const VerificationView = () => {
   return (
     <>
-      <div className="relative overflow-hidden rounded-full bg-custom">
-        <Input
-          style={{ borderRadius: "30px" }}
-          className="w-full h-10 rounded-full"
-          placeholder="请输入验证码"
-          allowClear
-          size="large"
-          // onSearch={onSearch}
-        />
-        <div className="absolute top-0 right-0 flex items-center justify-center h-full w-28 bg-pink">
-          发送验证码
+      <div className="w-full h-20 mt-7">
+        <div className="relative w-full h-10 overflow-hidden ">
+          <Input
+            className="h-10 rounded-full"
+            placeholder="请输入验证码"
+            allowClear
+            size="large"
+            // onSearch={onSearch}
+          />
+          <div
+            className="absolute top-0 right-0 flex items-center justify-center h-10 w-28 "
+            onClick={() => {
+              alert("发送验证码");
+            }}
+          >
+            发送验证码
+          </div>
+        </div>
+        <div className="pt-1 pl-4 pr-4">新手机注册后可使用，自动登录</div>
+        
+        <div className="z-50 flex items-center justify-center w-full h-12 mt-6 overflow-hidden rounded-full ">
+          <Button className="w-full h-8 rounded-full" size="large" type="primary">
+            立即登录
+          </Button>
         </div>
       </div>
     </>
