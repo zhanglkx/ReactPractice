@@ -1,8 +1,9 @@
 // /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Input } from "antd";
 import { useState } from "react";
-import "./style.module.css";
+import styles from "./style.module.css";
 import { InputType } from "@/Components/Login/Interface/interface";
+import './index.css'
 // const { Search } = Input;
 
 type PasswordViewProps = {
@@ -29,7 +30,7 @@ const Index = () => {
 
   return (
     <>
-      <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 marker:mt-14">
+      <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 mt-3 marker:mt-14 bg-pink">
         <div className="w-full h-7">
           <Input
             className="h-10 rounded-full"
@@ -86,7 +87,7 @@ const VerificationView = () => {
             // onSearch={onSearch}
           />
           <div
-            className="absolute top-0 right-0 flex items-center justify-center h-10 w-28 "
+            className="absolute top-0 right-0 flex items-center justify-center h-10 w-28 z-10"
             onClick={() => {
               alert("发送验证码");
             }}
@@ -98,15 +99,15 @@ const VerificationView = () => {
 
         <div className="z-50 flex items-center justify-center w-full h-12 mt-6 overflow-hidden rounded-full ">
           <Button
-            style={{ color: "white", borderRadius: "30px" }}
-            className="w-full h-8 rounded-full  hover:bg-tahiti-testColor active:bg-tahiti-testColor bg-tahiti-testColor"
+            // style={{ color: "white", borderRadius: "30px" }}
+            // className={`${styles.test } ${styles.antBtnPrimary} w-full`}
+            className="w-full bg-pink"
             size="large"
             type="primary"
           >
             立即登录
           </Button>
         </div>
-        {/* <Button size="" type="primary">1111</Button> */}
       </div>
     </>
   );

@@ -45,9 +45,11 @@
 
 
 .test{
-  background-color: #ff0000 !important;
+  background-color: #ff0000 ;
+  border-radius: 30px;
 }
 
 .ant-btn-primary{
   background-color: #ff0000;
+  border-radius: 30px;
 }

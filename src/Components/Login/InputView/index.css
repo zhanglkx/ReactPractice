@@ -1,0 +1,39 @@
+/* .ant-btn.ant-btn-lg.ant-btn-primary:hover {
+  background-color: #40ff00;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-color: #007bff;
+  border-width: 1px;
+}
+
+.ant-btn.ant-btn-lg.ant-btn-primary {
+    background-color: #40ff00;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-color: #007bff;
+    border-width: 1px;
+  } */
+  .ant-btn.ant-btn-lg.ant-btn-primary {
+    background-color: #40ff00;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-color: #007bff;
+    border-width: 1px;
+
+    /* 鼠标悬停时的样式 */
+    &:hover {
+        background-color: #40ff00; /* 如果 hover 状态下背景色没有变化，则可以省略此行 */
+    }
+}
