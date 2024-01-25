@@ -1,9 +1,9 @@
 // /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Input } from "antd";
 import { useState } from "react";
-import styles from "./style.module.css";
+// import styles from "./style.module.css";
 import { InputType } from "@/Components/Login/Interface/interface";
-import './index.css'
+import "./index.css";
 // const { Search } = Input;
 
 type PasswordViewProps = {
@@ -77,7 +77,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 const VerificationView = () => {
   return (
     <>
-      <div className="w-full h-20 mt-7">
+      <div className="w-full h-30 mt-7 bg-custom">
         <div className="relative w-full h-10 overflow-hidden ">
           <Input
             className="h-10 rounded-full"
@@ -96,8 +96,7 @@ const VerificationView = () => {
           </div>
         </div>
         <div className="pt-1 pl-4 pr-4">新手机注册后可使用，自动登录</div>
-
-        <div className="z-50 flex items-center justify-center w-full h-12 mt-6 overflow-hidden rounded-full ">
+        <div className="flex items-center justify-center w-full h-12 mt-6  ">
           <Button
             // style={{ color: "white", borderRadius: "30px" }}
             // className={`${styles.test } ${styles.antBtnPrimary} w-full`}
