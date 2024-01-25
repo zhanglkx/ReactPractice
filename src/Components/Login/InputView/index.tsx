@@ -1,6 +1,6 @@
 // /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Input } from "antd";
-import React, { useState } from "react";
+import { useState } from "react";
 import "./style.module.css";
 import { InputType } from "@/Components/Login/Interface/interface";
 // const { Search } = Input;
@@ -10,7 +10,7 @@ type PasswordViewProps = {
   inputChange: (e: any) => void;
 };
 
-const Index: React.FC = () => {
+const Index = () => {
   const [visibility, setVisibility] = useState<boolean>(false);
   const [inputType, setInputType] = useState<InputType>(InputType.Verification);
 
@@ -29,7 +29,7 @@ const Index: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col flex-wrap justify-around w-5/6 h-30 marker:mt-14">
+      <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 marker:mt-14">
         <div className="w-full h-7">
           <Input
             className="h-10 rounded-full"
@@ -69,7 +69,6 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
   );
 };
 
-
 /**
  * 验证码界面
  * @returns 验证码界面
@@ -96,12 +95,18 @@ const VerificationView = () => {
           </div>
         </div>
         <div className="pt-1 pl-4 pr-4">新手机注册后可使用，自动登录</div>
-        
+
         <div className="z-50 flex items-center justify-center w-full h-12 mt-6 overflow-hidden rounded-full ">
-          <Button className="w-full h-8 rounded-full" size="large" type="primary">
+          <Button
+            style={{ color: "white", borderRadius: "30px" }}
+            className="w-full h-8 rounded-full  hover:bg-tahiti-testColor active:bg-tahiti-testColor bg-tahiti-testColor"
+            size="large"
+            type="primary"
+          >
             立即登录
           </Button>
         </div>
+        {/* <Button size="" type="primary">1111</Button> */}
       </div>
     </>
   );

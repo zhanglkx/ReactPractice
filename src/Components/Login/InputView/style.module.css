@@ -26,3 +26,28 @@
   border-radius: 25px;
   background-color: aqua;
 }
+
+.ant-btn-lg {
+  border-radius: 29px;
+}
+.ant-btn {
+  border-radius: 29px;
+}
+
+.ant-btn-primary:hover{
+  background-color: #ff0000;
+}
+
+
+.ant-btn-primary:active{
+  background-color: #ff0000;
+}
+
+
+.test{
+  background-color: #ff0000 !important;
+}
+
+.ant-btn-primary{
+  background-color: #ff0000;
+}
