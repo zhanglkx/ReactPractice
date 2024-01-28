@@ -1,8 +1,15 @@
 import Icon from "@/Components/Icon";
 import { Button } from "antd";
-import './ThirdLogin.css'
+import "./ThirdLogin.css";
 
 function ThirdLogin() {
+  const htmlRoot = document.getElementById("clickable-part");
+  if (htmlRoot) {
+    htmlRoot.addEventListener("click", () => {
+      console.log("click");
+    });
+  }
+
   return (
     <>
       <div className="  w-full  h-28 bottom-0 fixed">
@@ -18,10 +25,12 @@ function ThirdLogin() {
           <Icon className="w-10 h-10 " type="icon-pingguo" />
         </div>
 
-        <div className="w-24 h-12 flex  justify-between items-center bg-custom">
+        <div className=" h-12 flex  justify-between items-center bg-custom w-full">
           <Button type="primary" className="w-24 h-12 text-black">
             立即登录
           </Button>
+          {/* 这是一段普通的文本，但<span>这里</span>是可以点击的。 */}
+          {/* 这是一段普通的文本，但这里是可以点击的。 */}
         </div>
       </div>
     </>
