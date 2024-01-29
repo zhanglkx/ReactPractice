@@ -1,14 +1,38 @@
 import Icon from "@/Components/Icon";
-import { Button } from "antd";
 import "./ThirdLogin.css";
+import { useEffect, useState } from "react";
+
 
 function ThirdLogin() {
-  const htmlRoot = document.getElementById("clickable-part");
-  if (htmlRoot) {
-    htmlRoot.addEventListener("click", () => {
-      console.log("click");
-    });
-  }
+  useEffect(() => {
+    const htmlRoot = document.getElementById("clickable-part");
+
+    if (htmlRoot) {
+      htmlRoot.addEventListener("click", () => {
+
+        window.open('https://www.baidu.com/s?wd=AUX', '_blank');
+      });
+    }
+
+  }, []);
+
+  const [state, setState] = useState<string>("icon-yuan");
+
+  const switchIcon = () => {
+    setState(state === "icon-yuan" ? "icon-duihao" : "icon-yuan");
+  };
+
+  const wechatClick = () => {
+    window.open('https://www.baidu.com/s?wd=weixin', '_blank');
+  };
+
+  const qqClick = () => {
+    window.open('https://www.baidu.com/s?wd=qq', '_blank');
+  };
+
+  const appleClick = () => {
+    window.open('https://www.baidu.com/s?wd=apple', '_blank');
+  };
 
   return (
     <>
@@ -20,17 +44,17 @@ function ThirdLogin() {
         </div>
 
         <div className="flex justify-between items-center ml-20 mr-20">
-          <Icon className="w-10 h-10 " type="icon-weixin" />
-          <Icon className="w-10 h-10 " type="icon-qq" />
-          <Icon className="w-10 h-10 " type="icon-pingguo" />
+          <Icon className="w-10 h-10 " type="icon-weixin" onClick={wechatClick} />
+          <Icon className="w-10 h-10 " type="icon-qq" onClick={qqClick} />
+          <Icon className="w-10 h-10 " type="icon-pingguo" onClick={appleClick} />
         </div>
 
-        <div className=" h-12 flex  justify-between items-center bg-custom w-full">
-          <Button type="primary" className="w-24 h-12 text-black">
-            立即登录
-          </Button>
-          {/* 这是一段普通的文本，但<span>这里</span>是可以点击的。 */}
-          {/* 这是一段普通的文本，但这里是可以点击的。 */}
+        <div className=" h-12 flex justify-center items-center w-full ml">
+
+          <div className="inline-block">
+            <Icon className="w-4 h-4 inline-block" type={state} onClick={switchIcon} />
+            <div className="inline-block">这是一段普通的文本，但<span className="text-pink" id="clickable-part">这里</span>是可以点击的。</div>
+          </div>
         </div>
       </div>
     </>

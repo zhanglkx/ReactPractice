@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 // 组件 props 的类型
 type Props = {
   // icon 的类型
@@ -8,6 +10,9 @@ type Props = {
   onClick?: () => void;
 };
 const Icon = ({ type, className, onClick }: Props) => {
+  useEffect(() => {
+    // console.log(type, className);
+  });
   return (
     <svg
       className={"icon " + className} //'icon '这里有空格，不然类名不生效
