@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <>
       {contextHolder}
-      <div className="bg-custom flex flex-auto justify-between items-center h-[60px]">
+      <div className="flex flex-auto justify-between items-center h-[60px]">
         <div></div>
         <Button type="text" size="large" onClick={info}>
           短信登录

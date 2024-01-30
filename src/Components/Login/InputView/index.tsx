@@ -30,7 +30,7 @@ const Index = () => {
 
   return (
     <>
-      <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 mt-3 marker:mt-14 bg-pink">
+      <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 mt-3 marker:mt-14">
         <div className="w-full h-7">
           <Input
             className="h-10 rounded-full"
@@ -77,7 +77,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 const VerificationView = () => {
   return (
     <>
-      <div className="w-full h-30 mt-7 bg-custom">
+      <div className="w-full h-30 mt-7">
         <div className="relative w-full h-10 overflow-hidden ">
           <Input
             className="h-10 rounded-full"

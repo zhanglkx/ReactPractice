@@ -22,7 +22,7 @@
     border-width: 1px;
   } */
   .ant-btn.ant-btn-lg.ant-btn-primary {
-    background-color: #40ff00;
+    background-color: #104ac6;
     color: #fff;
     border: none;
     border-radius: 30px;
@@ -34,6 +34,6 @@
 
     /* 鼠标悬停时的样式 */
     &:hover {
-        background-color: #40ff00; /* 如果 hover 状态下背景色没有变化，则可以省略此行 */
+        background-color: #0d1ed9; /* 如果 hover 状态下背景色没有变化，则可以省略此行 */
     }
 }
