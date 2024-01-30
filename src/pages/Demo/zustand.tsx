@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+// import { FetchTest } from '@/stores/interface';
 
 const useStore = create((set) => ({
     bears: 0,
@@ -15,14 +16,14 @@ const useStore = create((set) => ({
  * @returns UI
  */
 function BearCounter() {
-    const bears = useStore((state) => state.bears)
+    const bears = useStore<number>((state: any) => state.bears)
     console.log(bears);
 
     return <h1>{bears} around here...</h1>
 }
 
 function Controls() {
-    const increasePopulation = useStore((state) => {
+    const increasePopulation = useStore((state: any) => {
         console.log(state);
 
         return state.increasePopulation
