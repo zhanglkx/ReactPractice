@@ -38,9 +38,9 @@ function ThirdLogin() {
     <>
       <div className="  w-full  h-28 bottom-0 fixed">
         <div className="flex flex-wrap justify-center items-center">
-          <div className="flex justify-center bg-pink h-0.5 w-2/6"></div>
+          <div className="flex justify-center bg-color-pink-50 h-0.5 w-2/6"></div>
           <div className="flex justify-center">其他方式登录</div>
-          <div className="flex justify-center bg-tahiti-tahiti h-0.5 w-2/6"></div>
+          <div className="flex justify-center bg-color-purple-500 h-0.5 w-2/6"></div>
         </div>
 
         <div className="flex justify-between items-center ml-20 mr-20">
@@ -53,7 +53,7 @@ function ThirdLogin() {
 
           <div className="inline-block">
             <Icon className="w-4 h-4 inline-block" type={state} onClick={switchIcon} />
-            <div className="inline-block">这是一段普通的文本，但<span className="text-pink" id="clickable-part">这里</span>是可以点击的。</div>
+            <div className="inline-block">这是一段普通的文本，但<span className="text-color-pink-500" id="clickable-part">这里</span>是可以点击的。</div>
           </div>
         </div>
       </div>
