@@ -10,6 +10,8 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
       black: colors.black,
+      slate:colors.slate,
+      zinc:colors.zinc,
       white: colors.white,
       indigo: colors.indigo,
       red: colors.rose,
@@ -18,21 +20,9 @@ export default {
       green: colors.emerald,
       purple: colors.violet,  
       blue: colors.blue,    
-      blueInit: {
-        light: '#85d7ff',
-        DEFAULT: '#1fb6ff',
-        dark: '#009eeb',
-      },
-      pink: {
-        light: '#ff7ce5',
-        DEFAULT: '#ff49db',
-        dark: '#ff16d1',
-      },
       extend: {
         colors: {
           'regal-blue': '#243c5a',
-          amber: colors.amber,
-          emerald: colors.emerald,
         },
       },
     },
