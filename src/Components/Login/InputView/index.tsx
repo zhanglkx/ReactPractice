@@ -75,8 +75,8 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
           />
 
           <div className="flex ml-3 mr-3 mt-2">
-            <div className="text-sm flex-1 text-orange-500">密码必须包含数字、小写字母、大写字母、特殊符号，且长度要在8-18位之间</div>
-            <div className="w-50 flex justify-center items-center ml-2 text-[#50d71e]" onClick={forgetPassword}>忘记密码？</div>
+            <div className="text-sm flex-1 text-color-gray-500">密码必须包含数字、小写字母、大写字母、特殊符号，且长度要在8-18位之间</div>
+            <div className="w-50 flex justify-center items-center ml-2 text-blue-300" onClick={forgetPassword}>忘记密码？</div>
           </div>
 
           <div className="flex items-center justify-center w-full h-12 mt-6">
