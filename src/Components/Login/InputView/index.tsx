@@ -19,9 +19,8 @@ const Index = () => {
 
   const inputChange = (e: any) => {
     console.log(e.target.value);
-    alert(e.target.value);
+    // alert(e.target.value);
     setVisibility(true);
-    // setInputType(InputType.Password);
   };
   let Verify;
   if (loginType === 'password') {
@@ -33,7 +32,7 @@ const Index = () => {
   return (
     <>
       <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 mt-3 marker:mt-14">
-        <div className="w-full h-7">
+        <div className="w-full h-12">
           <Input
             className="h-10 rounded-full"
             allowClear
@@ -56,7 +55,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
   return (
     <>
       <div>
-        <div className="w-full h-7 bg-custom">
+        <div className="w-full  h-14 flex justify-center items-center">
           <Input.Password
             className="h-10 rounded-full"
             visibilityToggle={visibility}
