@@ -2,7 +2,6 @@
 import { Button, Input } from "antd";
 import { useState } from "react";
 // import styles from "./style.module.css";
-import { InputType } from "@/Components/Login/Interface/interface";
 import "./index.css";
 import { useLoginStore } from '@/stores/Login'
 
