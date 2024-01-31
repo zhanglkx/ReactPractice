@@ -65,7 +65,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
     <>
       {contextHolder}
       <div>
-        <div className="w-full bg-pink  mt-2  ">
+        <div className="w-full mt-2  ">
           <Input.Password
             className="h-10 rounded-full text-lg"
             visibilityToggle={visibility}
@@ -74,9 +74,19 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
             onChange={inputChange}
           />
 
-          <div className="flex ml-4 mr-4">
-            <div className="text-sm">密码必须包含数字、小写字母、大写字母、特殊符号，且长度要在8-18位之间</div>
-            <div className="w-40 bg-tahiti-100 flex justify-center items-center" onClick={forgetPassword}>忘记密码？</div>
+          <div className="flex ml-3 mr-3 mt-2">
+            <div className="text-sm flex-1 text-orange-500">密码必须包含数字、小写字母、大写字母、特殊符号，且长度要在8-18位之间</div>
+            <div className="w-50 flex justify-center items-center ml-2 text-[#50d71e]" onClick={forgetPassword}>忘记密码？</div>
+          </div>
+
+          <div className="flex items-center justify-center w-full h-12 mt-6">
+            <Button
+              className="w-full"
+              size="large"
+              type="primary"
+            >
+              登录
+            </Button>
           </div>
 
         </div>
