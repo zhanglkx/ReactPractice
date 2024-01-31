@@ -1,5 +1,5 @@
 // /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 import { useState } from "react";
 // import styles from "./style.module.css";
 import "./index.css";
@@ -52,10 +52,18 @@ const Index = () => {
  * @returns 密码界面
  */
 const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const forgetPassword = () => {
+    messageApi.info('忘记密码？')
+  };
+
   return (
     <>
+      {contextHolder}
       <div>
-        <div className="w-full  h-14 flex justify-center items-center">
+        <div className="w-full bg-pink  mt-2  ">
           <Input.Password
             className="h-10 rounded-full"
             visibilityToggle={visibility}
@@ -65,6 +73,12 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
               inputChange;
             }}
           />
+
+          <div className="flex ml-4 mr-4">
+            <div className="text-sm">密码必须包含数字、小写字母、大写字母、特殊符号，且长度要在8-18位之间</div>
+            <div className="w-40 bg-tahiti-100 flex justify-center items-center" onClick={forgetPassword}>忘记密码？</div>
+          </div>
+
         </div>
       </div>
     </>
@@ -85,7 +99,7 @@ const VerificationView = () => {
             placeholder="请输入验证码"
             allowClear
             size="large"
-            // onSearch={onSearch}
+          // onSearch={onSearch}
           />
           <div
             className="absolute top-0 right-0 flex items-center justify-center h-10 w-28 z-10"
