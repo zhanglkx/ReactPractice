@@ -78,7 +78,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 const VerificationView = () => {
   return (
     <>
-      <div className="w-full h-30 mt-7">
+      <div className="w-full h-34 mt-2">
         <div className="relative w-full h-10 overflow-hidden ">
           <Input
             className="h-10 rounded-full"
