@@ -4,7 +4,7 @@ import { useState } from "react";
 // import styles from "./style.module.css";
 import { InputType } from "@/Components/Login/Interface/interface";
 import "./index.css";
-// const { Search } = Input;
+import { useLoginStore } from '@/stores/Login'
 
 type PasswordViewProps = {
   visibility: boolean;
@@ -13,16 +13,19 @@ type PasswordViewProps = {
 
 const Index = () => {
   const [visibility, setVisibility] = useState<boolean>(false);
-  const [inputType, setInputType] = useState<InputType>(InputType.Verification);
+  // const [inputType, setInputType] = useState<InputType>(InputType.Verification);
+
+  const loginType = useLoginStore((state) => state.loginType);
+  // const updateLoginType = useLoginStore((state) => state.updateLoginType);
 
   const inputChange = (e: any) => {
     console.log(e.target.value);
     alert(e.target.value);
     setVisibility(true);
-    setInputType(InputType.Password);
+    // setInputType(InputType.Password);
   };
   let Verify;
-  if (inputType === InputType.Password) {
+  if (loginType === 'password') {
     Verify = <PasswordView visibility={visibility} inputChange={inputChange} />;
   } else {
     Verify = <VerificationView />;
