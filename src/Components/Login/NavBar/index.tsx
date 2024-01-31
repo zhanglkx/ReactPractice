@@ -19,8 +19,6 @@ const App: React.FC = () => {
       message.info('短信登录')
     } else if (loginType === 'password') {
       message.info('密码登录')
-    } else if (loginType === 'email') {
-      message.info('邮箱登录')
     }else{
       updateLoginType('password')
     }
