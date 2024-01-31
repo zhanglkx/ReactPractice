@@ -1,7 +1,5 @@
-// /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Input, message } from "antd";
 import { useState } from "react";
-// import styles from "./style.module.css";
 import "./index.css";
 import { useLoginStore } from '@/stores/Login'
 
@@ -12,16 +10,20 @@ type PasswordViewProps = {
 
 const Index = () => {
   const [visibility, setVisibility] = useState<boolean>(false);
-  // const [inputType, setInputType] = useState<InputType>(InputType.Verification);
 
   const loginType = useLoginStore((state) => state.loginType);
-  // const updateLoginType = useLoginStore((state) => state.updateLoginType);
 
   const inputChange = (e: any) => {
     console.log(e.target.value);
     // alert(e.target.value);
     setVisibility(true);
   };
+
+  const inputHandle = (e: any) => {
+    console.log(e.target.value);
+  }
+
+
   let Verify;
   if (loginType === 'password') {
     Verify = <PasswordView visibility={visibility} inputChange={inputChange} />;
@@ -34,10 +36,10 @@ const Index = () => {
       <div className="test flex flex-col flex-wrap justify-around w-5/6 h-30 mt-3 marker:mt-14">
         <div className="w-full h-12">
           <Input
-            className="h-10 rounded-full"
+            className="h-10 rounded-full  text-lg"
             allowClear
             placeholder="请输入手机号"
-            onChange={inputChange}
+            onChange={inputHandle}
           />
         </div>
         {Verify}
@@ -65,13 +67,11 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
       <div>
         <div className="w-full bg-pink  mt-2  ">
           <Input.Password
-            className="h-10 rounded-full"
+            className="h-10 rounded-full text-lg"
             visibilityToggle={visibility}
             allowClear
             placeholder="去输入密码"
-            onChange={() => {
-              inputChange;
-            }}
+            onChange={inputChange}
           />
 
           <div className="flex ml-4 mr-4">
