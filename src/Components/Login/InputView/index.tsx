@@ -120,7 +120,7 @@ const VerificationView = () => {
             发送验证码
           </div>
         </div>
-        <div className="pt-1 pl-4 pr-4">新手机注册后可使用，自动登录</div>
+        <div className="pt-1 pl-4 pr-4 text-xs text-color-gray-500">新手机注册后可使用，自动登录</div>
         <div className="flex items-center justify-center w-full h-12 mt-6  ">
           <Button
             // style={{ color: "white", borderRadius: "30px" }}
