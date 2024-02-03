@@ -10,6 +10,8 @@ type PasswordViewProps = {
 
 const Index = () => {
   const [visibility, setVisibility] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState('');
+
 
   const loginType = useLoginStore((state) => state.loginType);
 
@@ -19,8 +21,19 @@ const Index = () => {
     setVisibility(true);
   };
 
-  const inputHandle = (e: any) => {
-    console.log(e.target.value);
+  const inputHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+
+
+    const numberRegex = /^[0-9]+$/;
+    const isValidInput = numberRegex.test(value);
+    if (isValidInput) {
+      console.log(value);
+      setInputValue(value)
+
+    } else {
+      setInputValue(inputValue)
+    }
   }
 
 
@@ -39,7 +52,9 @@ const Index = () => {
             className="h-10 rounded-full  text-lg"
             allowClear
             placeholder="请输入手机号"
+            maxLength={11}
             onChange={inputHandle}
+            value={inputValue}
           />
         </div>
         {Verify}
