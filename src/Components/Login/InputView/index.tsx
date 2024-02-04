@@ -2,6 +2,7 @@ import { Button, Input, message } from "antd";
 import { useState } from "react";
 import "./index.css";
 import { useLoginStore } from '@/stores/Login'
+import { useNavigate } from 'react-router-dom'
 
 type PasswordViewProps = {
   visibility: boolean;
@@ -115,6 +116,14 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
  * @returns 验证码界面
  */
 const VerificationView = () => {
+
+  const navigate = useNavigate();
+
+  const goToLogin = () => {
+    alert("登录");
+    navigate('/deviceList');
+  };
+
   return (
     <>
       <div className="w-full h-34 mt-2">
@@ -143,6 +152,7 @@ const VerificationView = () => {
             className="w-full bg-pink"
             size="large"
             type="primary"
+            onClick={goToLogin}
           >
             立即登录
           </Button>

@@ -20,7 +20,7 @@ const routers: RouteConfig[] = [
   },
   {
     path: "/deviceList",
-    element: LazyLoad("../pages/deviceList"),
+    element: LazyLoad("../pages/deviceList/DeviceList.tsx"),
   },
   // {
   //     path: "/product/:id",
