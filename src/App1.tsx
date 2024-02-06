@@ -1,4 +1,4 @@
-import Effect from '@/hooks/useage/Effect'
+import Effect from '@/hooks/useage/Reducer'
 
 export default function App1() {
     return (

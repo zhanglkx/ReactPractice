@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 function App() {
     const [num, setNum] = useState(0);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         console.log('effect')
         const timer = setInterval(() => {
             console.log(num);
