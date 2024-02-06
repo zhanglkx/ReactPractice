@@ -1,5 +1,5 @@
 import { Button, Input, message } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.css";
 import { useLoginStore } from '@/stores/Login'
 import { useNavigate } from 'react-router-dom'
@@ -71,11 +71,23 @@ const Index = () => {
  */
 const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 
+
+  const navigate = useNavigate();
+
   const [messageApi, contextHolder] = message.useMessage();
+
+  const routerChange = useLoginStore((state) => state.routerChange);
+  const goggo = useLoginStore((state) => state.increase);
 
   const forgetPassword = () => {
     messageApi.info('忘记密码？')
   };
+
+  useEffect(() => {
+    console.log(routerChange);
+    // let 
+    navigate(goggo('/deviceList'));
+  }, []);
 
   return (
     <>
@@ -100,6 +112,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
               className="w-full"
               size="large"
               type="primary"
+              onClick={() => routerChange('./')}
             >
               登录
             </Button>

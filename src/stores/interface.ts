@@ -7,10 +7,13 @@ export interface FetchTest {
 export type State = {
     loginType: string,
     token: string
-    password: string
+    password: string,
+    router: string
 }
 
 export type Action = {
     updateLoginType: (loginType: State['loginType']) => void
-    // updateLastName: (lastName: State['lastName']) => void
+    routerChange: (router: State['router']) => void
+    increase: (router: State['router']) => string
+    getAi: () => Promise<string>
 }
