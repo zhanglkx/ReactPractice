@@ -8,9 +8,7 @@ function ThirdLogin() {
 
   const [state, setState] = useState<string>("icon-yuan");
 
-  const [valueState, setValueState] = useState<boolean>(false);
-
-  const agreePolicy = useLoginStore(state => state.agreePolicy);
+  // const agreePolicy = useLoginStore(state => state.agreePolicy);
   const updateAgreePolicy = useLoginStore(state => state.updateAgreePolicy)
 
   useEffect(() => {
@@ -22,30 +20,26 @@ function ThirdLogin() {
         window.open('https://www.baidu.com/s?wd=AUX', '_blank');
       });
     }
-
-    updateAgreePolicy(valueState)
-    console.log(valueState);
-
-
-  }, );
+  },);
 
 
 
   const switchIcon = () => {
-    if (agreePolicy) {
-      setState("icon-duihao");
-      // updateAgreePolicy(false);
-    } else {
-      setState("icon-yuan");
-      // updateAgreePolicy(true);
-    }
-    // updateAgreePolicy(false);
+
     setState(state === "icon-yuan" ? "icon-duihao" : "icon-yuan");
     if (state === "icon-duihao") {
-      setValueState(true);
+      agreed();
     } else if (state === "icon-yuan") {
-      setValueState(false);
+      notAgreed();
     }
+  };
+
+  const agreed = () => {
+    updateAgreePolicy(true);
+  };
+
+  const notAgreed = () => {
+    updateAgreePolicy(false);
   };
 
   const wechatClick = () => {
