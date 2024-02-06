@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+// import App from "./App.jsx";
+import App from "./App1.jsx";
 // import './index.css'
 import '../tailwind.css'
 import { ConfigProvider } from "antd";
