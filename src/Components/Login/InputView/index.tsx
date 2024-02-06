@@ -76,18 +76,18 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 
   const [messageApi, contextHolder] = message.useMessage();
 
-  const routerChange = useLoginStore((state) => state.routerChange);
-  const goggo = useLoginStore((state) => state.increase);
+  // const routerChange = useLoginStore((state) => state.routerChange);
+  // const goggo = useLoginStore((state) => state.increase);
 
   const forgetPassword = () => {
     messageApi.info('忘记密码？')
   };
 
-  useEffect(() => {
-    console.log(routerChange);
-    // let 
-    navigate(goggo('/deviceList'));
-  }, []);
+  // useEffect(() => {
+  //   console.log(routerChange);
+  //   // let 
+  //   navigate(goggo('/deviceList'));
+  // }, []);
 
   return (
     <>
@@ -112,7 +112,7 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
               className="w-full"
               size="large"
               type="primary"
-              onClick={() => routerChange('./')}
+              onClick={() => navigate('/deviceList')}
             >
               登录
             </Button>
