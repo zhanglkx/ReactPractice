@@ -131,8 +131,16 @@ const PasswordView = ({ visibility, inputChange }: PasswordViewProps) => {
 const VerificationView = () => {
 
   const navigate = useNavigate();
+  const agreePolicy = useLoginStore(state => state.agreePolicy);
 
   const goToLogin = () => {
+    console.log(agreePolicy);
+
+    if (!agreePolicy) {
+      message.error('请先同意用户协议');
+      return;
+    }
+
     alert("登录");
     navigate('/deviceList');
   };

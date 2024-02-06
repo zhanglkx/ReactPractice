@@ -6,10 +6,12 @@ import { useLoginStore } from '@/stores/Login'
 
 function ThirdLogin() {
 
+  const [state, setState] = useState<string>("icon-yuan");
+
+  const [valueState, setValueState] = useState<boolean>(false);
+
   const agreePolicy = useLoginStore(state => state.agreePolicy);
-  const updateAgreePolicy = (agree: boolean) => {
-    useLoginStore(state => state.updateAgreePolicy(agree))
-  }
+  const updateAgreePolicy = useLoginStore(state => state.updateAgreePolicy)
 
   useEffect(() => {
     const htmlRoot = document.getElementById("clickable-part");
@@ -21,9 +23,13 @@ function ThirdLogin() {
       });
     }
 
-  }, []);
+    updateAgreePolicy(valueState)
+    console.log(valueState);
 
-  const [state, setState] = useState<string>("icon-yuan");
+
+  }, );
+
+
 
   const switchIcon = () => {
     if (agreePolicy) {
@@ -33,8 +39,13 @@ function ThirdLogin() {
       setState("icon-yuan");
       // updateAgreePolicy(true);
     }
-    updateAgreePolicy(false);
+    // updateAgreePolicy(false);
     setState(state === "icon-yuan" ? "icon-duihao" : "icon-yuan");
+    if (state === "icon-duihao") {
+      setValueState(true);
+    } else if (state === "icon-yuan") {
+      setValueState(false);
+    }
   };
 
   const wechatClick = () => {
