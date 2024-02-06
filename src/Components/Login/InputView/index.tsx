@@ -1,5 +1,5 @@
 import { Button, Input, message } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./index.css";
 import { useLoginStore } from '@/stores/Login'
 import { useNavigate } from 'react-router-dom'

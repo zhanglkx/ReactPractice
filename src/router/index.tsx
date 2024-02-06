@@ -36,7 +36,7 @@ const routers: RouteConfig[] = [
 export default function RouterView() {
   // 创建路由
   const elem = useRoutes(routers);
-  console.log(elem);
+  // console.log(elem);
   // 返回接口
   return elem;
 }

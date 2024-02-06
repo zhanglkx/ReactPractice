@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   const loginType = useLoginStore((state) => state.loginType);
   const updateLoginType = useLoginStore((state) => state.updateLoginType);
-const [title, setTitle] = useState<string>('密码登录')
+  const [title, setTitle] = useState<string>('密码登录')
 
   useEffect(() => {
     if (loginType === 'phone') {
@@ -17,7 +17,7 @@ const [title, setTitle] = useState<string>('密码登录')
     } else if (loginType === 'password') {
       messageApi.info('密码登录')
       setTitle('密码登录')
-      
+
     } else {
       updateLoginType('password')
     }

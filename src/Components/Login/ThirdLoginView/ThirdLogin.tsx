@@ -1,9 +1,16 @@
 import Icon from "@/Components/Icon";
 import "./ThirdLogin.css";
 import { useEffect, useState } from "react";
+import { useLoginStore } from '@/stores/Login'
 
 
 function ThirdLogin() {
+
+  const agreePolicy = useLoginStore(state => state.agreePolicy);
+  const updateAgreePolicy = (agree: boolean) => {
+    useLoginStore(state => state.updateAgreePolicy(agree))
+  }
+
   useEffect(() => {
     const htmlRoot = document.getElementById("clickable-part");
 
@@ -19,6 +26,14 @@ function ThirdLogin() {
   const [state, setState] = useState<string>("icon-yuan");
 
   const switchIcon = () => {
+    if (agreePolicy) {
+      setState("icon-duihao");
+      // updateAgreePolicy(false);
+    } else {
+      setState("icon-yuan");
+      // updateAgreePolicy(true);
+    }
+    updateAgreePolicy(false);
     setState(state === "icon-yuan" ? "icon-duihao" : "icon-yuan");
   };
 

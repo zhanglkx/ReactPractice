@@ -1,12 +1,14 @@
 import { create } from 'zustand'
 import { State, Action } from './interface';
 
-const useLoginStore = create<State & Action>((set, get) => ({
+const useLoginStore = create<State & Action>((set) => ({
     loginType: 'string',
     token: 'string',
     password: 'string',
     router: 'string',
+    agreePolicy:false,
     updateLoginType: (loginType) => set(() => ({ loginType: loginType })),
+    updateAgreePolicy: (agreePolicy) => set(() => ({ agreePolicy: agreePolicy })),
     routerChange: (router) => set(() => ({ router: router })),
     increase: (router) => {
         set(() => ({ router: router }))
