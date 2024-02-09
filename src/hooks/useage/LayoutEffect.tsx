@@ -10,7 +10,7 @@ function App() {
         }, 1000);
 
         return () => {
-            console.log('clean up')
+            console.log('clean  up')
             clearInterval(timer);
         }
     }, [num]);
