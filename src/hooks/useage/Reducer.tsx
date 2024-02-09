@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Reducer, useReducer } from "react";
 import { produce } from 'immer'
 
@@ -30,7 +31,7 @@ function reducer(state: Data, action: Action) {
 }
 
 function App() {
-    const [res, dispatch] = useReducer<Reducer<Data, Action>, string>(reducer, 'zero', (param) => {
+    const [res, dispatch] = useReducer<Reducer<Data, Action>, string>(reducer, 'zero', (_param) => {
         return {
             a: {
                 c: {
