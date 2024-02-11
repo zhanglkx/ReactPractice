@@ -1,4 +1,4 @@
-import Effect from '@/hooks/useage/Reducer'
+import Effect from '@/pages/Demo/HookTrap'
 
 export default function App1() {
     return (
