@@ -16,7 +16,7 @@ function Counter() {
     // }
 
     useEffect(() => {
-        const buttonDom = buttonRef.current;
+        const buttonDom: any = buttonRef.current;
         if (buttonDom) {
             buttonDom.addEventListener('click', handleClick);
         }
