@@ -5,15 +5,8 @@ function Counter() {
     const buttonRef = useRef(null);
 
     const handleClick = () => {
-        console.log(count);
-
         setCount(count + 1);
     };
-    console.log(count);
-    // const buttonDom = buttonRef.current;
-    // if (buttonDom) {
-    //     buttonDom.addEventListener('click', handleClick);
-    // }
 
     useEffect(() => {
         const buttonDom: any = buttonRef.current;
@@ -25,7 +18,6 @@ function Counter() {
                 buttonDom.removeEventListener('click', handleClick);
             }
         };
-        console.log(count);
     }, []);
     return (
         <div>
