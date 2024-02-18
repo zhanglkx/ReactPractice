@@ -1,4 +1,4 @@
-import Effect from '@/pages/Demo/HookTrap'
+import Effect from '@/hooks/useage/Ref'
 
 export default function App1() {
     return (
