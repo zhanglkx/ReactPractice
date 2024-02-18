@@ -1,4 +1,4 @@
-import Effect from '@/hooks/useage/Context'
+import Effect from '@/hooks/useage/memo + useMemo + useCallback'
 
 export default function App1() {
     return (
