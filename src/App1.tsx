@@ -1,4 +1,4 @@
-import Effect from '@/hooks/useage/Ref'
+import Effect from '@/hooks/useage/Context'
 
 export default function App1() {
     return (
