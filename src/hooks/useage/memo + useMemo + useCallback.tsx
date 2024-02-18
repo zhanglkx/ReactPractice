@@ -10,7 +10,7 @@ function Aaa() {
     }, []);
 
     return <div>
-        <Bbb count={Math.random()}></Bbb>
+        <MemoBbb count={2}></MemoBbb>
     </div>
 }
 
@@ -20,8 +20,9 @@ interface BbbProps {
 
 function Bbb(props: BbbProps) {
     console.log('bbb render');
-    // debugger
     return <h2>{props.count}</h2>
 }
+
+const MemoBbb = memo(Bbb);
 
 export default Aaa;
