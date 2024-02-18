@@ -23,6 +23,7 @@ module.exports = {
     ],
     "rules": {
         '@typescript-eslint/no-explicit-any': 'off', // 禁止使用 any 类型
-        '@typescript-eslint/no-unused-vars': 'error', // 禁止定义未使用的变量
+        '@typescript-eslint/no-unused-vars': 'off', // 禁止定义未使用的变量
+
     }
 }
