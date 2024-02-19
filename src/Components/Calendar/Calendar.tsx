@@ -1,11 +1,21 @@
 
 import { Button } from "antd"
-import { useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 
-function Calendar() {
+function Calendar(props, ref) {
 
     const [date, setDate] = useState(new Date());
 
+    useImperativeHandle(ref, () => {
+        return {
+            getDate() {
+                return date;
+            },
+            setDate(date: Date) {
+                setDate(date)
+            }
+        }
+    });
 
     const handlePrevMonth = () => {
         setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
@@ -19,7 +29,9 @@ function Calendar() {
         <div className="h-80 w-80 border-2 border-solid border-color-lime-400 flex flex-col ">
             <CalendarHeader handleNextMonth={handleNextMonth} handlePrevMonth={handlePrevMonth} date={date} />
             <CalendarWeek />
-            <CalendarContent date={date} />
+            <CalendarContent date={date} onChange={(date: Date) => {
+                alert(date.toLocaleDateString());
+            }} />
         </div>
     )
 }
@@ -72,7 +84,7 @@ function CalendarWeek() {
     )
 }
 
-function CalendarContent({ date }: { date: Date }) {
+function CalendarContent({ date, onChange }: { date: Date, onChange?: any }) {
 
     const daysOfMonth = (year: number, month: number) => {
         return new Date(year, month + 1, 0).getDate()
@@ -93,17 +105,39 @@ function CalendarContent({ date }: { date: Date }) {
         }
 
         for (let i = 1; i <= daysCount; i++) {
-            days.push(<div key={i} className="w-1/7">{i}</div>);
+            const clickHandler = onChange?.bind(null, new Date(date.getFullYear(), date.getMonth(), i));
+            if (i === date.getDate()) {
+                days.push(<div key={i} className="w-1/7 flex justify-center items-center bg-color-orange-300" onClick={clickHandler}>{i}</div>);
+            } else {
+                days.push(<div key={i} className="w-1/7 flex justify-center items-center" onClick={clickHandler}>{i}</div>);
+            }
         }
         return days;
     };
 
     return (
-        <div className="flex justify-between flex-wrap w-full mt-2 bg-color-amber-100 flex-1" >
+        <div className="flex flex-wrap w-full mt-2 bg-color-amber-100 flex-1" >
             {renderDays()}
         </div>
     )
 }
 
 
-export default Calendar
+const CalendarRef = forwardRef(Calendar);
+
+const TestApp = () => {
+
+
+    const calendarRef = useRef(null);
+
+    useEffect(() => {
+        const date = calendarRef.current.getDate();
+        alert(date.toLocaleDateString());
+    }, []);
+    return (<>
+        <CalendarRef ref={calendarRef} props={1} />
+    </>)
+
+}
+
+export default TestApp
