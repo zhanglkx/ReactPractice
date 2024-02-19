@@ -1,6 +1,8 @@
+import { Button } from "antd"
+
 function Calendar() {
     return (
-        <div className="h-80 w-80 bg-color-red-200">
+        <div className="h-80 w-80 border-2 border-yellow-300">
             <CalendarHeader />
             <CalendarWeek />
             <CalendarContent />
@@ -12,7 +14,13 @@ function Calendar() {
 
 function CalendarHeader() {
     return (
-        <div>Calendar</div>
+        <div>
+            <div>
+                <Button type="primary">1</Button>
+            </div>
+            <div></div>
+            <div><Button type="primary">Primary Button</Button></div>
+        </div>
     )
 }
 
