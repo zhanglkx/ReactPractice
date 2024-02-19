@@ -30,6 +30,9 @@ export default {
       '175': '1.75',
     },
     extend: {
+      width: {
+        '1/7': 'calc(100% / 7)',
+      },
       keyframes: {
         displace: {
           '0%': { transform: 'rotate(0deg)' },

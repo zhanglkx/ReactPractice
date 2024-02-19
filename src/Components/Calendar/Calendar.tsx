@@ -19,13 +19,13 @@ function Calendar() {
         <div className="h-80 w-80 border-2 border-solid border-color-lime-400 flex flex-col ">
             <CalendarHeader handleNextMonth={handleNextMonth} handlePrevMonth={handlePrevMonth} date={date} />
             <CalendarWeek />
-            <CalendarContent />
+            <CalendarContent date={date} />
         </div>
     )
 }
 
 
-function CalendarHeader({ handlePrevMonth, handleNextMonth, date }) {
+function CalendarHeader({ handlePrevMonth, handleNextMonth, date }: { handlePrevMonth: any, handleNextMonth: any, date: Date }) {
 
     const monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月',];
 
@@ -72,8 +72,7 @@ function CalendarWeek() {
     )
 }
 
-function CalendarContent() {
-
+function CalendarContent({ date }: { date: Date }) {
 
     const daysOfMonth = (year: number, month: number) => {
         return new Date(year, month + 1, 0).getDate()
@@ -83,24 +82,25 @@ function CalendarContent() {
         return new Date(year, month, 1).getDay();
     };
 
-    const renderDay = (year: number, month: number) => {
-
+    const renderDays = () => {
         const days = [];
 
-        const dayCount = daysOfMonth(year, month);
+        const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
+        const firstDay = weekOfDay(date.getFullYear(), date.getMonth());
 
-    }
+        for (let i = 0; i < firstDay; i++) {
+            days.push(<div key={`empty-${i}`} className="w-1/7"></div>);
+        }
 
-    const arr = new Array(42).fill(0)
+        for (let i = 1; i <= daysCount; i++) {
+            days.push(<div key={i} className="w-1/7">{i}</div>);
+        }
+        return days;
+    };
+
     return (
-        <div className="flex justify-between flex-wrap w-full bg-color-amber-100 flex-1" >
-            {arr.map((_item, index) => {
-                return (
-                    <div key={index} className="flex justify-around w-1/6">
-                        {index}
-                    </div>
-                )
-            })}
+        <div className="flex justify-between flex-wrap w-full mt-2 bg-color-amber-100 flex-1" >
+            {renderDays()}
         </div>
     )
 }
