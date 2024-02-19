@@ -1,9 +1,9 @@
-import Effect from '@/hooks/useage/memo + useMemo + useCallback'
+import Effect from '@/Components/Calendar/Calendar'
 
 export default function App1() {
     return (
-        <div>
-            <h1>App1</h1>
+        <div className='flex justify-center'>
+            {/* <h1>App1</h1> */}
             <Effect />
 
         </div>
