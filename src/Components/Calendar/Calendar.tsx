@@ -2,7 +2,7 @@ import { Button } from "antd"
 
 function Calendar() {
     return (
-        <div className="h-80 w-80 border-2 border-yellow-300">
+        <div className="h-80 w-80 bg-color-slate-300  border-2 border-solid border-color-lime-400">
             <CalendarHeader />
             <CalendarWeek />
             <CalendarContent />
@@ -14,12 +14,14 @@ function Calendar() {
 
 function CalendarHeader() {
     return (
-        <div>
-            <div>
-                <Button type="primary">1</Button>
+        <div className="flex justify-between flex-wrap">
+            <div >
+                <Button type="primary"> {`<`} </Button>
             </div>
-            <div></div>
-            <div><Button type="primary">Primary Button</Button></div>
+
+            <div>{`1111`}</div>
+
+            <div><Button type="primary">{`>`}</Button></div>
         </div>
     )
 }
