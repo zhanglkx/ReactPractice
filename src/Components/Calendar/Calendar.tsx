@@ -1,42 +1,19 @@
 import { Button } from "antd"
-import { useState, useEffect } from "react"
 
 function Calendar() {
     return (
-        <div className="h-80 w-80 border-2 border-solid border-color-lime-400">
+        <div className="h-80 w-80 border-2 border-solid border-color-lime-400 flex flex-col ">
             <CalendarHeader />
             <CalendarWeek />
             <CalendarContent />
-            <Page />
         </div>
     )
 }
-
-
-function Page() {
-    const [value, setValue] = useState(1)
-    console.log(b)
-    useEffect(() => {
-        console.log(value)
-        setValue(2)
-    }, [])
-    var b = 8
-    console.log(b - value)
-    return (
-        <div className="h-80 w-80 border-2 border-solid border-color-lime-400">
-
-        </div>
-    )
-}
-
-
-
-
 
 
 function CalendarHeader() {
     return (
-        <div className="flex justify-between flex-wrap">
+        <div className="flex justify-between flex-wrap h-10">
             <div >
                 <Button type="primary"> {`<`} </Button>
             </div>
@@ -54,7 +31,7 @@ function CalendarWeek() {
     const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
     return (
-        <div className="flex justify-between flex-wrap">
+        <div className="flex justify-between flex-wrap h-10">
             {
                 days.map((day, index) => {
                     return (
@@ -69,8 +46,17 @@ function CalendarWeek() {
 }
 
 function CalendarContent() {
+    const arr = new Array(42).fill(0)
     return (
-        <div>Calendar</div>
+        <div className="flex justify-between flex-wrap w-full mt-3 mb-3 bg-color-amber-100 flex-1" >
+            {arr.map((_item, index) => {
+                return (
+                    <div key={index} className="flex justify-around w-1/6">
+                        {index}
+                    </div>
+                )
+            })}
+        </div>
     )
 }
 
