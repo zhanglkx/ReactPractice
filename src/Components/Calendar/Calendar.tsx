@@ -1,4 +1,5 @@
 import { Button } from "antd"
+import { useState } from "react";
 
 function Calendar() {
     return (
@@ -12,15 +13,27 @@ function Calendar() {
 
 
 function CalendarHeader() {
+
+    const [date, setDate] = useState(new Date());
+
+    const handlePrevMonth = () => {
+        setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+    };
+
+    const handleNextMonth = () => {
+        setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+    };
+
+
     return (
-        <div className="flex justify-between flex-wrap h-10">
+        <div className="flex justify-between flex-wrap h-7">
             <div >
-                <Button type="primary"> {`<`} </Button>
+                <Button type="primary" onClick={handlePrevMonth}> {`<`} </Button>
             </div>
 
-            <div>{new Date().toLocaleDateString()}</div>
+            <div>{date.toLocaleDateString()}</div>
 
-            <div><Button type="primary">{`>`}</Button></div>
+            <div><Button type="primary" onClick={handleNextMonth}>{`>`}</Button></div>
         </div>
     )
 }
@@ -31,7 +44,7 @@ function CalendarWeek() {
     const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
     return (
-        <div className="flex justify-between flex-wrap h-10">
+        <div className="flex justify-between flex-wrap h-7">
             {
                 days.map((day, index) => {
                     return (
@@ -48,7 +61,7 @@ function CalendarWeek() {
 function CalendarContent() {
     const arr = new Array(42).fill(0)
     return (
-        <div className="flex justify-between flex-wrap w-full mt-3 mb-3 bg-color-amber-100 flex-1" >
+        <div className="flex justify-between flex-wrap w-full bg-color-amber-100 flex-1" >
             {arr.map((_item, index) => {
                 return (
                     <div key={index} className="flex justify-around w-1/6">
