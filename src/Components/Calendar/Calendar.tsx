@@ -1,10 +1,13 @@
 
 import { Button } from "antd"
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
+import { Ref, forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 
-function Calendar(props, ref) {
+
+function Calendar(props: any, ref: Ref<unknown> | undefined) {
 
     const [date, setDate] = useState(new Date());
+
+    console.log(props);
 
     useImperativeHandle(ref, () => {
         return {
@@ -101,15 +104,26 @@ function CalendarContent({ date, onChange }: { date: Date, onChange?: any }) {
         const firstDay = weekOfDay(date.getFullYear(), date.getMonth());
 
         for (let i = 0; i < firstDay; i++) {
-            days.push(<div key={`empty-${i}`} className="w-1/7"></div>);
+
+            const lastMonthDate = new Date(date.getFullYear(), date.getMonth() - 1, 0);
+            const daysInLastMonth = lastMonthDate.getDate();
+
+            days.push(<div key={`empty-${i}`} className="w-1/7 flex justify-center items-center text-color-slate-400">{daysInLastMonth - firstDay + i + 1}</div>);
         }
 
-        for (let i = 1; i <= daysCount; i++) {
-            const clickHandler = onChange?.bind(null, new Date(date.getFullYear(), date.getMonth(), i));
-            if (i === date.getDate()) {
-                days.push(<div key={i} className="w-1/7 flex justify-center items-center bg-color-orange-300" onClick={clickHandler}>{i}</div>);
+        for (let i = 1; i <= 42 - firstDay; i++) {
+
+            if (i <= daysCount) {
+                const clickHandler = onChange?.bind(null, new Date(date.getFullYear(), date.getMonth(), i));
+                if (i === date.getDate()) {
+                    days.push(<div key={i} className="w-1/7 flex justify-center items-center bg-color-orange-300" onClick={clickHandler}>{i}</div>);
+                } else {
+                    days.push(<div key={i} className="w-1/7 flex justify-center items-center" onClick={clickHandler}>{i}</div>);
+                }
+
             } else {
-                days.push(<div key={i} className="w-1/7 flex justify-center items-center" onClick={clickHandler}>{i}</div>);
+                // debugger
+                days.push(<div key={`empty-${i}`} className="w-1/7 flex justify-center items-center text-color-slate-400">{i - daysCount}</div>);
             }
         }
         return days;
@@ -131,8 +145,8 @@ const TestApp = () => {
     const calendarRef = useRef(null);
 
     useEffect(() => {
-        const date = calendarRef.current.getDate();
-        alert(date.toLocaleDateString());
+        // const date = calendarRef.current.getDate();
+        // alert(date.toLocaleDateString());
     }, []);
     return (<>
         <CalendarRef ref={calendarRef} props={1} />
