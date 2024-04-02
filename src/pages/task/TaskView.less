@@ -1,0 +1,52 @@
+.task-box {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 800px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+
+  .tag-box {
+    margin: 15px 0;
+
+    .ant-tag {
+      margin-inline-end: 20px;
+      padding-inline: 10px;
+      border-radius: 0;
+      font-size: 14px;
+      line-height: 30px;
+      cursor: pointer;
+
+      &.active {
+        background-color: #1890ff;
+        color: #fff;
+      };
+    }
+  }
+
+  .task-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+
+  .ant-table-cell {
+    .ant-btn-link{
+      padding: 4px;
+    }
+  }
+
+}

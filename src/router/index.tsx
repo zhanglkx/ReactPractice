@@ -7,6 +7,7 @@ import LazyLoad from "./LazyLoad";
 // import Private from "./Private";
 
 
+
 interface RouteConfig {
   path: string;
   element: React.ReactNode | null;
