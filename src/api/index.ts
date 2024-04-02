@@ -11,7 +11,7 @@ export const getTaskList = (state = 0) => {
 };
 
 // 新增任务
-export const addTask = (task, time) => {
+export const addTask = (task: any, time: any) => {
     return http.post('/addTask', {
         task,
         time
@@ -19,7 +19,7 @@ export const addTask = (task, time) => {
 };
 
 // 删除任务
-export const removeTask = (id) => {
+export const removeTask = (id: any) => {
     return http.get('/removeTask', {
         params: {
             id
@@ -28,7 +28,7 @@ export const removeTask = (id) => {
 };
 
 // 完成任务
-export const completeTask = (id) => {
+export const completeTask = (id: any) => {
     return http.get('/completeTask', {
         params: {
             id

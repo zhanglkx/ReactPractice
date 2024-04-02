@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import axios from "axios";
 import qs from 'qs';
 import { message } from 'antd';
@@ -18,7 +19,7 @@ http.interceptors.response.use(response => {
 });
 
 
-const isPlainObject = function isPlainObject(obj) {
+const isPlainObject = function isPlainObject(obj: any) {
     let proto, Ctor;
     if (!obj || toString.call(obj) !== "[object Object]") return false;
     proto = Object.getPrototypeOf(obj);

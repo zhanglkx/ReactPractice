@@ -1,5 +1,6 @@
 import ItemCard from "@/Components/ItemCard/Card";
 import ItemArray from "../utils/PageIndex";
+import { wrap } from "module";
 
 function HomeView() {
   return (
@@ -10,6 +11,7 @@ function HomeView() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          flexWrap: 'wrap'
         }}
       >
         {ItemArray.map((item) => (

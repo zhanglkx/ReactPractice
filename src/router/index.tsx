@@ -3,7 +3,7 @@ import { useRoutes } from "react-router-dom";
 
 // import AboutView from "../views/AboutView";
 // 导入懒加载组件方法
-import LazyLoad from "@/router/LazyLoad"
+// import LazyLoad from "@/router/LazyLoad"
 // import Private from "./Private";
 import AntdRoutes from "@/router/modules/AntdDemos";
 // import AdminView from "@/pages/admin/AdminView";
@@ -13,25 +13,61 @@ import AntdRoutes from "@/router/modules/AntdDemos";
 
 // import Private from "@/router/Private";
 
-
+import { lazy } from "react";
 
 // 创建路由
 let routers: any[] = [
   {
     path: "/",
-    element: LazyLoad("../pages/HomeView.tsx"),
+    Component: lazy(() => import('@/pages/HomeView')),
   },
   {
     path: "/about",
-    element: LazyLoad("../views/AboutView"),
+    Component: lazy(() => import('@/pages/AboutView')),
   },
   {
     path: "/calendar",
-    element: LazyLoad("../components/Calendar/Calendar"),
+    Component: lazy(() => import('@/Components/Calendar/Calendar')),
   },
   {
     path: "/product/:id",
-    element: LazyLoad("../views/ProductView"),
+    Component: lazy(() => import('@/pages/ProductView')),
+  },
+  {
+    path: "/login",
+    Component: lazy(() => import('@/pages/login/index')),
+  },
+  {
+    path: "/deviceList",
+    Component: lazy(() => import('@/pages/DeviceList/DeviceList')),
+  },
+  {
+    path: "/task",
+    Component: lazy(() => import('@/pages/task/TaskView')),
+  },
+  {
+    path: "/virtualList",
+    Component: lazy(() => import('@/pages/VirtualList/index')),
+  },
+  {
+    path: "/virtualList",
+    Component: lazy(() => import('@/pages/VirtualList/index')),
+  },
+  {
+    path: "/waterfall",
+    Component: lazy(() => import('@/pages/WaterFall/WaterFall')),
+  },
+  {
+    path: "/zform",
+    Component: lazy(() => import('@/pages/ZForm/Zform')),
+  },
+  {
+    path: "/Admin",
+    Component: lazy(() => import('@/pages/admin/AdminView')),
+  },
+  {
+    path: "*",
+    Component: lazy(() => import('@/pages/error/404/index')),
   },
   // {
   //   path: "/Admin",
@@ -52,26 +88,6 @@ let routers: any[] = [
   //     },
   //   ],
   // },
-  {
-    path: "/",
-    element: LazyLoad("../pages/login/index.tsx"),
-  },
-  {
-    path: "/deviceList",
-    element: LazyLoad("../pages/deviceList/DeviceList.tsx"),
-  },
-  {
-    path: "/product/:id",
-    element: LazyLoad("../views/ProductView")
-  },
-  {
-    path: "/calendar",
-    element: LazyLoad("@/Components/Calendar/Calendar")
-  },
-  {
-    path: "*",
-    element: LazyLoad("../pages/error/404/index.tsx"),
-  },
 ];
 
 // 使用useRoutes 创建

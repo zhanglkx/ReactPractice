@@ -20,14 +20,14 @@ import {
   addTask,
   removeTask,
   completeTask,
-} from "../../api/index.js";
+} from "@/api/index";
 
 /* 对日期处理的方法 */
-const zero = function zero(text) {
+const zero = function zero(text: string | any[]) {
   text = String(text);
   return text.length < 2 ? "0" + text : text;
 };
-const formatTime = function formatTime(time) {
+const formatTime = function formatTime(time: string) {
   let arr = time.match(/\d+/g),
     [, month, day, hours = "00", minutes = "00"] = arr;
   return `${zero(month)}-${zero(day)} ${zero(hours)}:${zero(minutes)}`;
@@ -65,14 +65,14 @@ function Task() {
       dataIndex: "state",
       align: "center",
       width: "10%",
-      render: (text) => (+text === 1 ? "未完成" : "已完成"),
+      render: (text: string | number) => (+text === 1 ? "未完成" : "已完成"),
     },
     {
       title: "完成时间",
       dataIndex: "time",
       align: "center",
       width: "15%",
-      render: (_, record) => {
+      render: (_: any, record: { state: any; time: any; complete: any; }) => {
         let { state, time, complete } = record;
         if (+state === 2) time = complete;
         return formatTime(time);
@@ -80,7 +80,7 @@ function Task() {
     },
     {
       title: "操作",
-      render: (_, record) => {
+      render: (_: any, record: { id: any; state: any; }) => {
         let { id, state } = record;
         return (
           <>
@@ -155,7 +155,7 @@ function Task() {
   };
 
   // 选中状态切换
-  const changeIndex = (index) => {
+  const changeIndex = (index: React.SetStateAction<number>) => {
     // 这句代码可以不要，react函数组件本身会优化，因为当前后两个UI没有改变的实际，视图不会更新(类组件需要添加，类组件不会优化)
     // if (selectedIndex === index) return;
 
@@ -167,7 +167,7 @@ function Task() {
   };
 
   // 删除
-  const handleRemove = async (id) => {
+  const handleRemove = async (id: any) => {
     try {
       let { code } = await removeTask(id);
       if (+code !== 0) {
@@ -183,7 +183,7 @@ function Task() {
   };
 
   // 完成
-  const handleUpdate = async (id) => {
+  const handleUpdate = async (id: any) => {
     try {
       let { code } = await completeTask(id);
       if (+code !== 0) {
