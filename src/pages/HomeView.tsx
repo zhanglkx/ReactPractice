@@ -1,4 +1,4 @@
-import ItemCard from "../components/ItemCard/Card";
+import ItemCard from "@/Components/ItemCard/Card";
 import ItemArray from "../utils/PageIndex";
 
 function HomeView() {

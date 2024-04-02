@@ -1,7 +1,7 @@
 import React from 'react';
 import { SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
-import { Props } from './type'
+import { Props } from '@/Components/ItemCard/type'
 import { useNavigate } from "react-router-dom";
 const { Meta } = Card;
 
