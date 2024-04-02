@@ -9,7 +9,7 @@ function HomeView() {
         style={{
           margin: "10px",
           display: "flex",
-          justifyContent: "center",
+          // justifyContent: "center",
           alignItems: "center",
           flexWrap: 'wrap'
         }}
