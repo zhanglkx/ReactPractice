@@ -66,6 +66,10 @@ let routers: any[] = [
     Component: lazy(() => import('@/pages/admin/AdminView')),
   },
   {
+    path: "/PropsChildren",
+    Component: lazy(() => import('@/pages/Demo/PropsChildren.tsx')),
+  },
+  {
     path: "*",
     Component: lazy(() => import('@/pages/error/404/index')),
   },

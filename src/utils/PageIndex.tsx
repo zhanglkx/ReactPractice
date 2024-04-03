@@ -1,4 +1,4 @@
-import { Props } from '@/Components/ItemCard/type'
+import {Props} from '@/Components/ItemCard/type'
 
 const ItemArray: Props[] = [
     {
@@ -50,6 +50,11 @@ const ItemArray: Props[] = [
         title: 'Contact',
         desc: 'Contact',
         route: '/Contact',
+    },
+    {
+        title: '组件 Props',
+        desc: '组件 Props 练习学习',
+        route: '/PropsChildren',
     },
     {
         title: ' 表格列的数据',
