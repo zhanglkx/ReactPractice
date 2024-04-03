@@ -1,5 +1,5 @@
 // 导入路由依赖
-import { useRoutes } from "react-router-dom";
+import {useRoutes} from "react-router-dom";
 
 // import AboutView from "../views/AboutView";
 // 导入懒加载组件方法
@@ -10,10 +10,8 @@ import AntdRoutes from "@/router/modules/AntdDemos";
 // import DashView from "@/pages/admin/DashView";
 // import OrderList from "@/pages/admin/OrderList";
 // import AboutView from "../views/AboutView";
-
 // import Private from "@/router/Private";
-
-import { lazy } from "react";
+import {lazy} from "react";
 
 // 创建路由
 let routers: any[] = [
@@ -100,8 +98,7 @@ export default function RouterView() {
   routers = routers.concat(AntdRoutes);
 
   // 创建路由
-  const elem = useRoutes(routers);
   // console.log(elem);
   // 返回接口
-  return elem;
+  return useRoutes(routers);
 }

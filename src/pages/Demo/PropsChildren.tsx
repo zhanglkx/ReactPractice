@@ -1,3 +1,5 @@
+import React from "react";
+
 function Container(props: any) {
 
     const ContainerProps = {
@@ -21,7 +23,16 @@ function Container(props: any) {
     return (
         <div>
             容器类
-            {props.children(ContainerProps)}
+            {/*{props.children(ContainerProps)}*/}
+            {props.children.map((item: any) => {
+                if (React.isValidElement(item)) {
+                    return React.cloneElement(item, {...ContainerProps})
+                } else if (typeof item === 'function') {
+                    return item(ContainerProps)
+                } else {
+                    return null
+                }
+            })}
         </div>
     )
 }
@@ -30,8 +41,8 @@ function Child(props: any) {
     return (
         <div>
             子类
-            { props.name}
-            {props.mes}
+            <div>hello, my name is {props.name} </div>
+            <div> {props.mes} </div>
         </div>
     )
 }
@@ -39,7 +50,8 @@ function Child(props: any) {
 function PropsChildren() {
     return (
         <Container>
-            {(ContainerProps:any) => <Child {...ContainerProps}  />}
+            <Child/>
+            {(ContainerProps: any) => <Child {...ContainerProps} name={'haha'}/>}
         </Container>
 
     );
