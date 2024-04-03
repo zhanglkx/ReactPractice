@@ -1,8 +1,15 @@
 import ItemCard from "@/Components/ItemCard/Card";
 import ItemArray from "../utils/PageIndex";
-import { wrap } from "module";
+import {useEffect} from "react";
+import Favicon from '../../public/astronaut.svg'
+import changeFavicon from "@/utils/changeFavicon.ts";
 
 function HomeView() {
+
+    useEffect(() => {
+        changeFavicon(Favicon)
+    }, []);
+
   return (
     <>
       <div
