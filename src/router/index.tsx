@@ -14,6 +14,7 @@ import AntdRoutes from "@/router/modules/AntdDemos";
 import {lazy} from "react";
 
 // 创建路由
+
 let routers: any[] = [
   {
     path: "/",
@@ -33,7 +34,8 @@ let routers: any[] = [
   },
   {
     path: "/login",
-    Component: lazy(() => import('@/pages/login/index')),
+    // @ts-ignore
+    Component: lazy(() => import('@/pages/login')),
   },
   {
     path: "/deviceList",
@@ -69,7 +71,8 @@ let routers: any[] = [
   },
   {
     path: "*",
-    Component: lazy(() => import('@/pages/error/404/index')),
+    // @ts-ignore
+    Component: lazy(() => import('@/pages/error/404')),
   },
   // {
   //   path: "/Admin",
