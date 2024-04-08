@@ -5,7 +5,7 @@ import {useRoutes} from "react-router-dom";
 // 导入懒加载组件方法
 // import LazyLoad from "@/router/LazyLoad"
 // import Private from "./Private";
-import AntdRoutes from "@/router/modules/AntdDemos";
+// import AntdRoutes from "@/router/modules/AntdDemos";
 // import AdminView from "@/pages/admin/AdminView";
 // import DashView from "@/pages/admin/DashView";
 // import OrderList from "@/pages/admin/OrderList";
@@ -15,7 +15,7 @@ import {lazy} from "react";
 
 // 创建路由
 
-let routers: any[] = [
+const routers: any[] = [
   {
     path: "/",
     Component: lazy(() => import('@/pages/HomeView')),
@@ -25,8 +25,12 @@ let routers: any[] = [
     Component: lazy(() => import('@/pages/AboutView')),
   },
   {
-    path: "/calendar",
+    path: "/miniCalendar",
     Component: lazy(() => import('@/Components/Calendar/Calendar')),
+  },
+  {
+    path: "/calendar",
+    Component: lazy(() => import('@/Components/Calendar/index')),
   },
   {
     path: "/product/:id",
@@ -34,7 +38,6 @@ let routers: any[] = [
   },
   {
     path: "/login",
-    // @ts-ignore
     Component: lazy(() => import('@/pages/login')),
   },
   {
@@ -71,7 +74,6 @@ let routers: any[] = [
   },
   {
     path: "*",
-    // @ts-ignore
     Component: lazy(() => import('@/pages/error/404')),
   },
   // {
@@ -98,7 +100,7 @@ let routers: any[] = [
 // 使用useRoutes 创建
 export default function RouterView() {
 
-  routers = routers.concat(AntdRoutes);
+  // routers = routers.concat(AntdRoutes);
 
   // 创建路由
   // console.log(elem);

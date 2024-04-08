@@ -9,6 +9,11 @@ const ItemArray: Props[] = [
     {
         title: '日历',
         desc: '日历组件',
+        route: '/miniCalendar',
+    },
+    {
+        title: '日历完整版',
+        desc: '组件日历完整版 练习学习',
         route: '/calendar',
     },
     {

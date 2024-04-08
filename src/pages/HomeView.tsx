@@ -6,6 +6,8 @@ import changeFavicon from "@/utils/changeFavicon.ts";
 
 function HomeView() {
 
+    // const [_, setValue] = useState<number>(0);
+
     useEffect(() => {
         changeFavicon(Favicon)
     }, []);
