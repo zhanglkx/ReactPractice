@@ -10,7 +10,7 @@ import {ErrorBoundary} from "react-error-boundary";
 import Error404 from '@/pages/error/404/index.tsx'
 
 
-const fallbackRender = ({error}) => {
+const fallbackRender = ({error}:any) => {
     return <div>
         <p>出错了：</p>
         <div>{error.message}</div>
