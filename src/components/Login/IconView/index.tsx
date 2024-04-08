@@ -1,4 +1,4 @@
-import Icon from "@/Components/Icon";
+import Icon from "@/components/Icon";
 
 const index: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const index: React.FC = () => {
         <div className="flex items-center justify-center w-full h-8 ">
           ReactJs
         </div>
-        
+
       </div>
     </>
   );

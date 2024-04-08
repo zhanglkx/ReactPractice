@@ -1,4 +1,4 @@
-import ItemCard from "@/Components/ItemCard/Card";
+import ItemCard from "@/components/ItemCard/Card";
 import ItemArray from "../utils/PageIndex";
 import {useEffect} from "react";
 import Favicon from '../../public/astronaut.svg'

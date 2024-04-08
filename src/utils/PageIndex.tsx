@@ -1,4 +1,4 @@
-import {Props} from '@/Components/ItemCard/type'
+import {Props} from '@/components/ItemCard/type'
 
 const ItemArray: Props[] = [
     {

@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {CalendarProps} from "@/Components/Calendar/index.tsx";
+import {CalendarProps} from "@/components/Calendar/index.tsx";
 import dayjs, {Dayjs} from "dayjs";
 
 interface MonthCalendarProps extends CalendarProps {

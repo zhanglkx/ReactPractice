@@ -1,4 +1,4 @@
-import Icon from "@/Components/Icon";
+import Icon from "@/components/Icon";
 import "./ThirdLogin.css";
 import { useEffect, useState } from "react";
 import { useLoginStore } from '@/stores/Login'

@@ -26,11 +26,11 @@ const routers: any[] = [
   },
   {
     path: "/miniCalendar",
-    Component: lazy(() => import('@/Components/Calendar/Calendar')),
+    Component: lazy(() => import('@/components/Calendar/Calendar')),
   },
   {
     path: "/calendar",
-    Component: lazy(() => import('@/Components/Calendar/index')),
+    Component: lazy(() => import('@/components/Calendar/index')),
   },
   {
     path: "/product/:id",

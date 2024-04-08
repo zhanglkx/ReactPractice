@@ -1,5 +1,5 @@
 import dayjs, {Dayjs} from "dayjs";
-import MouthCalendar from '@/Components/Calendar/MonthCalendar'
+import MouthCalendar from '@/components/Calendar/MonthCalendar'
 
 export interface CalendarProps {
     value: Dayjs;

@@ -1,8 +1,8 @@
 
-import NavBar from "@/Components/Login/NavBar";
-import IconView from "@/Components/Login/IconView";
-import InputView from "@/Components/Login/InputView";
-import ThirdLogin from "@/Components/Login/ThirdLoginView/ThirdLogin";
+import NavBar from "@/components/Login/NavBar";
+import IconView from "@/components/Login/IconView";
+import InputView from "@/components/Login/InputView";
+import ThirdLogin from "@/components/Login/ThirdLoginView/ThirdLogin";
 // import { BearCounter, Controls } from '@/pages/Demo/zustand'
 
 function Login() {
