@@ -13,29 +13,55 @@ function getAllDays(date: Dayjs) {
     const endDate = date.endOf('month')          //每月结束
     const day = startDate.day()                     //开始是哪天,也就是日历表格上 1 号之前，有多少个空位置
 
-    const daysInfoList = Array(6 * 7);
-
+    const daysInfoList: Array<{ date: Dayjs, currentMouth: boolean }> = Array(6 * 7);
+    /**
+     * 获取 1 号之前的日期，也就是上个月显示在当前页面的日期
+     */
     for (let i = 0; i < day; i++) {
-        daysInfoList[i] = {date: startDate.subtract(day - i, 'day').format('YYYY-MM-DD')};
+        daysInfoList[i] = {date: startDate.subtract(day - i, 'day'), currentMouth: false};
     }
+    // 获取剩下的日期
+    for (let i = day; i < daysInfoList.length; i++) {
+        daysInfoList[i] = {date: startDate.add(i - day, 'day'), currentMouth: false};
+    }
+    return daysInfoList;
 }
+
+function renderDays(days: Array<{ date: Dayjs, currentMonth: boolean }>) {
+    const rows = [];
+    for (let i = 0; i < 6; i++) {
+        const row = [];
+        for (let j = 0; j < 7; j++) {
+            const item = days[i * 7 + j];
+            row[j] = <div key={`${i}+${j}`}
+                          className="p-2 text-fontColor text-center flex-1 bg-color-amber-200 m-3 rounded">{item.date.date()}</div>
+        }
+        rows.push(row);
+    }
+    return rows.map(row => <div className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
+}
+
 
 function MouthCalendar(props: MonthCalendarProps) {
     const weekList = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
-    useEffect(() => {
-        getAllDays(props.value)
-    }, []);
+    const allDays: Array<{ date: Dayjs, currentMouth: boolean }> = getAllDays(props.value)
 
     return <>
-        <div className='border-0 border-b border-blue border-solid'>
-            <div className='flex justify-around'>
+        <div className=''>
+            <div className='flex justify-around border-0 border-b border-blue border-solid'>
                 {/*{...props}*/}
                 {weekList.map((week, _) => (
                     <div className='p-2 text-fontColor text-center flex-1 bg-color-amber-200 m-3 rounded'
                          key={week}>{week}</div>
                 ))}
             </div>
+            <div className="">
+                {
+                    renderDays(allDays)
+                }
+            </div>
+
         </div>
     </>
 }
