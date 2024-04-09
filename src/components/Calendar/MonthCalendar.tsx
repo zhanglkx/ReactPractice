@@ -1,6 +1,6 @@
 import {CalendarProps} from "@/components/Calendar/index.tsx";
 import {Dayjs} from "dayjs";
-import {ReactNode} from "react";
+import CalendarLocale from "@/components/Calendar/locale/en-US";
 
 interface MonthCalendarProps extends CalendarProps {
 
@@ -77,7 +77,7 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
 
 
 function MouthCalendar(props: MonthCalendarProps) {
-    const weekList = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    const weekList = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
     const allDays: Array<{ date: Dayjs, currentMouth: boolean }> = getAllDays(props.value)
 
@@ -90,7 +90,7 @@ function MouthCalendar(props: MonthCalendarProps) {
 
                 {weekList.map((week, _) => (
                     <div className='p-2 text-fontColor text-center flex-1 bg-color-amber-200 m-3 rounded'
-                         key={week}>{week}</div>
+                         key={week}> {CalendarLocale.week[week]}</div>
                 ))}
             </div>
             <div className="">
