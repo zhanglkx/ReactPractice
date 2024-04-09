@@ -56,21 +56,11 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
         // 每行创建7个日期元素（一周7天）
         for (let j = 0; j < 7; j++) {
             const item = days[i * 7 + j]; // 根据行和列计算出当前日期对象
-            // 创建并填充日期显示元素
-            if (item.currentMouth) {
 
-                row[j] =
-                    <div key={`${i}+${j}`} className="text-left border border-borderColor border-solid flex-1 h-16 ">
-                        {item.date.date()}
-                    </div>
-
-            } else { //非当前月份日期
-
-                row[j] = <div key={`${i}+${j}`}
-                              className="text-left border border-borderColor text-ccc border-solid flex-1 h-16 ">
-                    {item.date.date()}
-                </div>
-            }
+            row[j] = <div key={`${i}+${j}`}
+                          className={`text-left border border-borderColor border-solid flex-1 h-16 ${item.currentMouth ? '' : 'text-ccc'} `}>
+                {dateRender ? dateRender(item.date) : item.date.date()}
+            </div>
 
         }
         rows.push(row); // 将填充好的行加入到行数组中
@@ -101,7 +91,7 @@ function MouthCalendar(props: MonthCalendarProps) {
             </div>
             <div className="">
                 {
-                    renderDays(allDays,dateRender,dateInnerContent)
+                    renderDays(allDays, dateRender, dateInnerContent)
                 }
             </div>
 

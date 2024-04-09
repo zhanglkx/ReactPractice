@@ -4,7 +4,6 @@ import MouthCalendar from '@/components/Calendar/MonthCalendar'
 import Header from '@/components/Calendar/Header'
 import {CSSProperties, ReactNode} from "react";
 import cs from "classnames";
-import {read} from "fs";
 
 export interface CalendarProps {
     value: Dayjs;
@@ -19,26 +18,29 @@ export interface CalendarProps {
     onChange?: (date: Dayjs) => void;
 }
 
+/**
+ * 每一个 item 的样式
+ * @param currentDate 当前日期
+ */
+function renderFun(currentDate: Dayjs): ReactNode {
+    return (
+        <>
+            <div>
+                <p style={{height: '50px'}}>{currentDate.format('YYYY/MM/DD')}</p>
+            </div>
+        </>)
+}
+
 function Index(props: CalendarProps = {value: dayjs('2024-04-10')}) {
 
     const day: string = '2023-11-08';
 
-    function renderFun(currentDate: Dayjs): ReactNode {
-        return <div>
-            <p style={{background: 'yellowgreen', height: '50px'}}>{currentDate.format('YYYY/MM/DD')}</p>
-        </div>
-    }
-
-
-    // 更严谨的检查和设置默认值
-    if (!props || Object.keys(props).length === 0) {
-        props = {
-            value: dayjs(day), className: 'calendar', style: {backgroundColor: 'lightpink'}, dateRender: renderFun
-        };
-    } else if (!props.value) {
-        // 如果 props 不为空，但是缺少 value 属性，也设置默认 value
-        props.value = dayjs(day);
-    }
+    props = {
+        value: dayjs(day),
+        className: 'calendar',
+        style: {backgroundColor: 'white'},
+        dateRender: renderFun
+    };
 
     let {value, style, className} = props;
 
