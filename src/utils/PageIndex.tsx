@@ -62,6 +62,11 @@ const ItemArray: Props[] = [
         route: '/PropsChildren',
     },
     {
+        title: 'Modal 视图',
+        desc: 'Modal 视图 练习学习',
+        route: '/modalView',
+    },
+    {
         title: ' 表格列的数据',
         desc: ' form',
         route: '/zform',
