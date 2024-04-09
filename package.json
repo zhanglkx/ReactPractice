@@ -28,6 +28,7 @@
     "antd": "^5.13.2",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.8",
+    "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "eslint": "^8.55.0",
     "eslint-plugin-react": "^7.33.2",

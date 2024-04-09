@@ -55,6 +55,9 @@ devDependencies:
   axios:
     specifier: ^1.6.8
     version: 1.6.8
+  classnames:
+    specifier: ^2.5.1
+    version: 2.5.1
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
