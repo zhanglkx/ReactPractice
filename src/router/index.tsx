@@ -1,6 +1,6 @@
 // 导入路由依赖
-import {useRoutes} from "react-router-dom";
-import {lazy} from "react";
+import { useRoutes } from "react-router-dom";
+import { lazy } from "react";
 
 // 创建路由
 const routers: any[] = [
@@ -26,7 +26,7 @@ const routers: any[] = [
     },
     {
         path: "/login",
-        Component: lazy(() => import('@/pages/login')),
+        Component: lazy(() => import('@/pages/Login/index')),
     },
     {
         path: "/deviceList",
@@ -66,7 +66,7 @@ const routers: any[] = [
     },
     {
         path: "*",
-        Component: lazy(() => import('@/pages/error/404')),
+        Component: lazy(() => import('@/pages/Error/404/index')),
     },
     // {
     //   path: "/Admin",
