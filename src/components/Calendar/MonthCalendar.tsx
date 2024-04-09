@@ -1,10 +1,11 @@
-import {CalendarProps} from "@/components/Calendar/index.tsx";
-import {Dayjs} from "dayjs";
-import {useContext} from "react";
+import { CalendarProps } from "@/components/Calendar/index.tsx";
+import { Dayjs } from "dayjs";
+import { useContext } from "react";
 import LocaleContext from "@/components/Calendar/LocaleContext";
 import allLocales from "@/components/Calendar/locale";
 
-interface MonthCalendarProps extends CalendarProps {}
+interface MonthCalendarProps extends CalendarProps {
+}
 
 /**
  * 获取给定日期所在月份的所有日期信息列表
@@ -22,7 +23,7 @@ function getAllDays(date: Dayjs) {
      * 初始化数组，填充当前月份之前（包括上个月末尾）的日期信息
      */
     for (let i = 0; i < day; i++) {
-        daysInfoList[i] = {date: startDate.subtract(day - i, 'day'), currentMouth: false};
+        daysInfoList[i] = { date: startDate.subtract(day - i, 'day'), currentMouth: false };
     }
     /**
      * 填充当前月份及之后的日期信息
@@ -31,7 +32,7 @@ function getAllDays(date: Dayjs) {
 
         const calcDate = startDate.add(i - day, 'day');
 
-        daysInfoList[i] = {date: calcDate, currentMouth: calcDate.month() === date.month()};
+        daysInfoList[i] = { date: calcDate, currentMouth: calcDate.month() === date.month() };
     }
     return daysInfoList;
 }
@@ -41,11 +42,16 @@ function getAllDays(date: Dayjs) {
  * @param days 一个数组，包含日期和是否为当前月份的标志的对象。
  * @param dateRender  // 定制日期显示，会完全覆盖日期单元格
  * @param dateInnerContent   // 定制日期显示，会完全覆盖日期单元格
+ * @param value
  * @returns 返回一个元素数组，每个元素代表一周的日期显示。
  */
-function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
-                    dateRender?: MonthCalendarProps['dateRender'],
-                    dateInnerContent?: MonthCalendarProps['dateInnerContent']) {
+function renderDays(
+    days: Array<{ date: Dayjs, currentMouth: boolean }>,
+    value: Dayjs,
+    dateRender?: MonthCalendarProps['dateRender'],
+    dateInnerContent?: MonthCalendarProps['dateInnerContent'],
+
+) {
     const rows = []; // 用于存储最终渲染的周数组
 
     // 创建6行（最多显示6周）
@@ -57,10 +63,11 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
             const item = days[i * 7 + j]; // 根据行和列计算出当前日期对象
 
             row[j] = <div key={j}
-                          className={`text-left border border-borderColor border-solid overflow-hidden flex-1 h-16 ${item.currentMouth ? '' : 'text-ccc'} `}>
+                className={`text-left border border-borderColor border-solid overflow-hidden flex-1 h-16 ${item.currentMouth ? '' : 'text-ccc'} `}>
 
                 {dateRender ? dateRender(item.date) : (<div>
-                    <div>{item.date.date()}</div>
+                    <div
+                        className={value.format('YYYY-MM-DD') === item.date.format('YYYY-MM-DD') ? "bg-color-amber-200" : ""}>{item.date.date()}</div>
                     <div>{dateInnerContent?.(item.date)}</div>
                 </div>)}
             </div>
@@ -71,7 +78,7 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
 
     // 将行数组映射为显示的周元素数组，并返回
     return rows.map((row, index) => <div key={index}
-                                         className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
+        className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
 }
 
 
@@ -86,7 +93,7 @@ function MouthCalendar(props: MonthCalendarProps) {
     // 获取页面上所有需要展示的日期，以及是否是当前月份的日期
     const allDays: Array<{ date: Dayjs, currentMouth: boolean }> = getAllDays(props.value)
 
-    const {dateRender, dateInnerContent} = props;
+    const { dateRender, dateInnerContent, value } = props;
 
 
     return <>
@@ -95,12 +102,12 @@ function MouthCalendar(props: MonthCalendarProps) {
 
                 {weekList.map((week, _) => (
                     <div className='p-2 text-fontColor text-center flex-1 bg-color-amber-200 m-3 rounded'
-                         key={week}> {CalendarLocale.week[week]}</div>
+                        key={week}> {CalendarLocale.week[week]}</div>
                 ))}
             </div>
             <div className="">
                 {
-                    renderDays(allDays, dateRender, dateInnerContent)
+                    renderDays(allDays, value, dateRender, dateInnerContent)
                 }
             </div>
 

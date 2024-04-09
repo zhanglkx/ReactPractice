@@ -44,7 +44,9 @@ function innerContent(currentDate: Dayjs): ReactNode {
 function Index(props: CalendarProps = { value: dayjs('2024-04-10') }) {
 
     const day: string = '2023-11-08';
-
+    /**
+     * 配置 props 的初始数据
+     */
     props = {
         value: dayjs(day),
         className: 'calendar',
