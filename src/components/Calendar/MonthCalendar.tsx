@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { CalendarProps } from "@/components/Calendar/index.tsx";
-import dayjs, { Dayjs } from "dayjs";
-import { json } from "react-router-dom";
+import { Dayjs } from "dayjs";
 
 interface MonthCalendarProps extends CalendarProps {
 
@@ -72,7 +70,7 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>) {
     }
 
     // 将行数组映射为显示的周元素数组，并返回
-    return rows.map(row => <div key={1} className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
+    return rows.map((row, index) => <div key={index} className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
 }
 
 
@@ -84,7 +82,7 @@ function MouthCalendar(props: MonthCalendarProps) {
     return <>
         <div className=''>
             <div className='flex justify-around border-0 border-b border-blue border-solid'>
-                {/*{...props}*/}
+
                 {weekList.map((week, _) => (
                     <div className='p-2 text-fontColor text-center flex-1 bg-color-amber-200 m-3 rounded'
                         key={week}>{week}</div>

@@ -1,5 +1,6 @@
 import dayjs, { Dayjs } from "dayjs";
 import MouthCalendar from '@/components/Calendar/MonthCalendar'
+import Header from '@/components/Calendar/Header'
 
 export interface CalendarProps {
     value: Dayjs;
@@ -20,6 +21,7 @@ function Index(props: CalendarProps = { value: dayjs('2024-04-10') }) {
     return (
         <div className='h-full outline outline-offset-2 outline-1 m-2 rounded-sm'>
             <h1 className='text-center align-middle'>日历组件</h1>
+            <Header />
             <MouthCalendar {...props} />
             <h1>日历组件</h1>
         </div>
