@@ -1,5 +1,6 @@
-import { CalendarProps } from "@/components/Calendar/index.tsx";
-import { Dayjs } from "dayjs";
+import {CalendarProps} from "@/components/Calendar/index.tsx";
+import {Dayjs} from "dayjs";
+import {ReactNode} from "react";
 
 interface MonthCalendarProps extends CalendarProps {
 
@@ -22,7 +23,7 @@ function getAllDays(date: Dayjs) {
      * 初始化数组，填充当前月份之前（包括上个月末尾）的日期信息
      */
     for (let i = 0; i < day; i++) {
-        daysInfoList[i] = { date: startDate.subtract(day - i, 'day'), currentMouth: false };
+        daysInfoList[i] = {date: startDate.subtract(day - i, 'day'), currentMouth: false};
     }
     /**
      * 填充当前月份及之后的日期信息
@@ -31,7 +32,7 @@ function getAllDays(date: Dayjs) {
 
         const calcDate = startDate.add(i - day, 'day');
 
-        daysInfoList[i] = { date: calcDate, currentMouth: calcDate.month() === date.month() };
+        daysInfoList[i] = {date: calcDate, currentMouth: calcDate.month() === date.month()};
     }
     return daysInfoList;
 }
@@ -39,9 +40,13 @@ function getAllDays(date: Dayjs) {
 /**
  * 渲染日历天数的函数。
  * @param days 一个数组，包含日期和是否为当前月份的标志的对象。
+ * @param dateRender  // 定制日期显示，会完全覆盖日期单元格
+ * @param dateInnerContent   // 定制日期显示，会完全覆盖日期单元格
  * @returns 返回一个元素数组，每个元素代表一周的日期显示。
  */
-function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>) {
+function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
+                    dateRender?: MonthCalendarProps['dateRender'],
+                    dateInnerContent?: MonthCalendarProps['dateInnerContent']) {
     const rows = []; // 用于存储最终渲染的周数组
 
     // 创建6行（最多显示6周）
@@ -54,13 +59,15 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>) {
             // 创建并填充日期显示元素
             if (item.currentMouth) {
 
-                row[j] = <div key={`${i}+${j}`} className="text-left border border-borderColor border-solid flex-1 h-16 ">
-                    {item.date.date()}
-                </div>
+                row[j] =
+                    <div key={`${i}+${j}`} className="text-left border border-borderColor border-solid flex-1 h-16 ">
+                        {item.date.date()}
+                    </div>
 
             } else { //非当前月份日期
 
-                row[j] = <div key={`${i}+${j}`} className="text-left border border-borderColor text-ccc border-solid flex-1 h-16 ">
+                row[j] = <div key={`${i}+${j}`}
+                              className="text-left border border-borderColor text-ccc border-solid flex-1 h-16 ">
                     {item.date.date()}
                 </div>
             }
@@ -70,7 +77,8 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>) {
     }
 
     // 将行数组映射为显示的周元素数组，并返回
-    return rows.map((row, index) => <div key={index} className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
+    return rows.map((row, index) => <div key={index}
+                                         className="w-full flex justify-around items-center text-color-slate-400">{row}</div>)
 }
 
 
@@ -79,18 +87,21 @@ function MouthCalendar(props: MonthCalendarProps) {
 
     const allDays: Array<{ date: Dayjs, currentMouth: boolean }> = getAllDays(props.value)
 
+    const {dateRender, dateInnerContent} = props;
+
+
     return <>
         <div className=''>
             <div className='flex justify-around border-0 border-b border-blue border-solid'>
 
                 {weekList.map((week, _) => (
                     <div className='p-2 text-fontColor text-center flex-1 bg-color-amber-200 m-3 rounded'
-                        key={week}>{week}</div>
+                         key={week}>{week}</div>
                 ))}
             </div>
             <div className="">
                 {
-                    renderDays(allDays)
+                    renderDays(allDays,dateRender,dateInnerContent)
                 }
             </div>
 
