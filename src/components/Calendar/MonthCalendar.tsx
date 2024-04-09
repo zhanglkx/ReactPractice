@@ -57,9 +57,13 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
         for (let j = 0; j < 7; j++) {
             const item = days[i * 7 + j]; // 根据行和列计算出当前日期对象
 
-            row[j] = <div key={`${i}+${j}`}
-                          className={`text-left border border-borderColor border-solid flex-1 h-16 ${item.currentMouth ? '' : 'text-ccc'} `}>
-                {dateRender ? dateRender(item.date) : item.date.date()}
+            row[j] = <div key={j}
+                          className={`text-left border border-borderColor border-solid overflow-hidden flex-1 h-16 ${item.currentMouth ? '' : 'text-ccc'} `}>
+
+                {dateRender ? dateRender(item.date) : (<div>
+                    <div>{item.date.date()}</div>
+                    <div>{dateInnerContent?.(item.date)}</div>
+                </div>)}
             </div>
 
         }

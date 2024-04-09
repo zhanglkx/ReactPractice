@@ -26,7 +26,16 @@ function renderFun(currentDate: Dayjs): ReactNode {
     return (
         <>
             <div>
-                <p style={{height: '50px'}}>{currentDate.format('YYYY/MM/DD')}</p>
+                <p style={{height: '300px'}}>{currentDate.format('YYYY/MM/DD')}</p>
+            </div>
+        </>)
+}
+
+function innerContent(currentDate: Dayjs): ReactNode {
+    return (
+        <>
+            <div>
+                <p style={{backgroundColor: 'aqua', height: '30px'}}>{currentDate.format('YYYY/MM/DD')}</p>
             </div>
         </>)
 }
@@ -39,7 +48,8 @@ function Index(props: CalendarProps = {value: dayjs('2024-04-10')}) {
         value: dayjs(day),
         className: 'calendar',
         style: {backgroundColor: 'white'},
-        dateRender: renderFun
+        dateRender: renderFun,
+        dateInnerContent: innerContent,
     };
 
     let {value, style, className} = props;
