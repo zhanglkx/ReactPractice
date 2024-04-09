@@ -1,11 +1,10 @@
 import {CalendarProps} from "@/components/Calendar/index.tsx";
 import {Dayjs} from "dayjs";
-import CalendarLocale from "@/components/Calendar/locale/en-US";
+import {useContext} from "react";
+import LocaleContext from "@/components/Calendar/LocaleContext";
+import allLocales from "@/components/Calendar/locale";
 
-interface MonthCalendarProps extends CalendarProps {
-
-}
-
+interface MonthCalendarProps extends CalendarProps {}
 
 /**
  * 获取给定日期所在月份的所有日期信息列表
@@ -77,8 +76,14 @@ function renderDays(days: Array<{ date: Dayjs, currentMouth: boolean }>,
 
 
 function MouthCalendar(props: MonthCalendarProps) {
+
+    const localeContext = useContext(LocaleContext);
+    const CalendarLocale = allLocales[localeContext.locale];
+
+    // 顶部周数据源
     const weekList = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
+    // 获取页面上所有需要展示的日期，以及是否是当前月份的日期
     const allDays: Array<{ date: Dayjs, currentMouth: boolean }> = getAllDays(props.value)
 
     const {dateRender, dateInnerContent} = props;
