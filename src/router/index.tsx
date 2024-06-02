@@ -65,6 +65,10 @@ const routers: any[] = [
         Component: lazy(() => import('@/components/Modal/modal'))
     },
     {
+        path: '/waterMark',
+        Component: lazy(() => import('@/pages/WaterMark'))
+    },
+    {
         path: "*",
         Component: lazy(() => import('@/pages/Error/404/index')),
     },

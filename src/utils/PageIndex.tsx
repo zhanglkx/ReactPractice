@@ -71,6 +71,11 @@ const ItemArray: Props[] = [
         desc: ' form',
         route: '/zform',
     },
+    {
+        title: '添加水印',
+        desc: ' 添加水印的技术',
+        route: '/waterMark',
+    },
 ]
 
 export default ItemArray
