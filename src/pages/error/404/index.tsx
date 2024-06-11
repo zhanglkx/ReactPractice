@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'antd'
 
-import '@/pages/error/403/index.less'
+import '@/pages/Error/403/index.less'
 
 import Error404 from '@/assets/react.svg'
 export default function Index() {

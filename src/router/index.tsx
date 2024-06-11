@@ -69,6 +69,10 @@ const routers: any[] = [
         Component: lazy(() => import('@/pages/WaterMark'))
     },
     {
+        path: '/virtualScroll',
+        Component: lazy(() => import('@/pages/VirtualScroll'))
+    },
+    {
         path: "*",
         Component: lazy(() => import('@/pages/Error/404/index')),
     },

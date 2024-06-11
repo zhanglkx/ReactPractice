@@ -7,7 +7,7 @@ import {ConfigProvider} from "antd";
 import zhCN from "antd/locale/zh_CN";
 import {BrowserRouter as Router} from "react-router-dom";
 import {ErrorBoundary} from "react-error-boundary";
-import Error404 from '@/pages/error/404/index.tsx'
+import Error404 from '@/pages/Error/404/index.tsx'
 
 
 const fallbackRender = ({error}:any) => {

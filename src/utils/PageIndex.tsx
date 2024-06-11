@@ -76,6 +76,11 @@ const ItemArray: Props[] = [
         desc: ' 添加水印的技术',
         route: '/waterMark',
     },
+    {
+        title: '',
+        desc: ' 虚拟滚动的技术',
+        route: '/virtualScroll',
+    },
 ]
 
 export default ItemArray
