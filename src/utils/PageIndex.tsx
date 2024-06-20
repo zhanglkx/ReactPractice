@@ -77,9 +77,14 @@ const ItemArray: Props[] = [
         route: '/waterMark',
     },
     {
-        title: '',
+        title: '虚拟滚动',
         desc: ' 虚拟滚动的技术',
         route: '/virtualScroll',
+    },
+    {
+        title: '拖拽排序',
+        desc: ' 拖拽排序的技术',
+        route: '/dragSort',
     },
 ]
 

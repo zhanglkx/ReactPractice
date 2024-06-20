@@ -4,19 +4,21 @@ import {Button} from "antd";
 
 const Index = () => {
     const [data, setData] = useState(new Array(20).fill(0).map((_, i) => i)); // 模拟真实数据
-    const [showData, setShowData] = useState(data.slice(0, 20));
+    const [showData, setShowData] = useState<any[]>(data.slice(0, 20));
     const viewHeight = useRef(400); // 可视容器高度
     const itemHeight = useRef(60); // 每一项的高度
     const scrollTop = useRef(0); // 初始滚动距离
     const scrollRef = useRef<HTMLDivElement | null>(null);
 
     const updateShowData = () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const newData = new Array(20).fill(0).map((_, i) => i + data.at(-1) + 1);
         setData(prevData => [...prevData, ...newData]);
     }
 
     // 滚动事件
-    const handleScroll = (e: Event, currentData) => {
+    const handleScroll = (e: Event, currentData: any[]) => {
         scrollTop.current = (e.target as HTMLElement).scrollTop;
         // 初始索引 = 滚动距离 / 每一项的高度
         const startIndex = Math.floor(scrollTop.current / itemHeight.current);
@@ -54,10 +56,11 @@ const Index = () => {
             <Button type='primary' onClick={updateShowData}>添加数据</Button>
             <div className="view-container" ref={scrollRef}
                  style={{height: viewHeight.current + 'px', overflowY: 'auto'}}>
+                {/*content-container  用来撑起滚动条,没有他页面不会滚动*/}
                 <div className="content-container" style={{height: itemHeight.current * data.length + 'px'}}></div>
                 <div className="item-container"
                      style={{transform: `translateY(${Math.floor(scrollTop.current / itemHeight.current) * itemHeight.current}px)`}}>
-                    {showData.map((item, i) => <div className="item" key={i}>{item}</div>)}
+                    {showData?.map((item, i) => <div className="item" key={i}>{item}</div>)}
                 </div>
             </div>
         </div>

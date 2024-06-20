@@ -8,9 +8,11 @@ import zhCN from "antd/locale/zh_CN";
 import {BrowserRouter as Router} from "react-router-dom";
 import {ErrorBoundary} from "react-error-boundary";
 import Error404 from '@/pages/Error/404/index.tsx'
+import {DndProvider} from 'react-dnd';
+import {HTML5Backend} from 'react-dnd-html5-backend';
 
 
-const fallbackRender = ({error}:any) => {
+const fallbackRender = ({error}: any) => {
     return <div>
         <p>出错了：</p>
         <div>{error.message}</div>
@@ -20,12 +22,12 @@ const fallbackRender = ({error}:any) => {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <ConfigProvider locale={zhCN}>
-        <Router>
-            <ErrorBoundary fallbackRender={fallbackRender}>
-
-                <App/>
-
-            </ErrorBoundary>
-        </Router>
+        <DndProvider backend={HTML5Backend}>
+            <Router>
+                <ErrorBoundary fallbackRender={fallbackRender}>
+                    <App/>
+                </ErrorBoundary>
+            </Router>
+        </DndProvider>
     </ConfigProvider>
 );

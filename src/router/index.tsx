@@ -73,6 +73,10 @@ const routers: any[] = [
         Component: lazy(() => import('@/pages/VirtualScroll'))
     },
     {
+        path: '/dragSort',
+        Component: lazy(() => import('@/pages/dragDnd/DragDemo.tsx'))
+    },
+    {
         path: "*",
         Component: lazy(() => import('@/pages/Error/404/index')),
     },
