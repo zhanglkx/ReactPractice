@@ -86,6 +86,11 @@ const ItemArray: Props[] = [
         desc: ' 拖拽排序的技术',
         route: '/dragSort',
     },
+    {
+        title: 'ESM',
+        desc: 'ESM导入导出规则测试',
+        route: '/ESMImp',
+    },
 ]
 
 export default ItemArray

@@ -77,6 +77,10 @@ const routers: any[] = [
         Component: lazy(() => import('@/pages/dragDnd/DragDemo.tsx'))
     },
     {
+        path: '/ESMImp',
+        Component: lazy(() => import('@/pages/ESM/ESMImp&Exp.tsx'))
+    },
+    {
         path: "*",
         Component: lazy(() => import('@/pages/Error/404/index')),
     },
