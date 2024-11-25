@@ -91,6 +91,11 @@ const ItemArray: Props[] = [
         desc: 'ESM导入导出规则测试',
         route: '/ESMImp',
     },
+    {
+        title: '时间分片',
+        desc: '时间分片requestIdleCallback',
+        route: '/TimeSlice',
+    },
 ]
 
 export default ItemArray

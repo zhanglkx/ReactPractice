@@ -81,6 +81,10 @@ const routers: any[] = [
         Component: lazy(() => import('@/pages/ESM/ESMImp&Exp.tsx'))
     },
     {
+        path: '/TimeSlice',
+        Component: lazy(() => import('@/pages/Principle/Principle.tsx'))
+    },
+    {
         path: "*",
         Component: lazy(() => import('@/pages/Error/404/index')),
     },
